@@ -1,0 +1,55 @@
+
+name: Framework Validation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: framework-validation-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate Framework
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Verify Python environment
+        run: |
+          python --version
+
+      - name: Compile validation utilities
+        run: |
+          python -m compileall -q tools tests
+
+      - name: Validate framework structure
+        run: |
+          python tools/validate_framework.py --strict
+
+      - name: Execute validator unit tests
+        run: |
+          python -m unittest discover -s tests -v
+
+      - name: Report validation completion
+        run: |
+          echo "Framework validation completed successfully."
