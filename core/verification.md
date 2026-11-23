@@ -1,340 +1,497 @@
 
-# PREZEKC AI — Verification Protocol
+# PREZEKC AI — Verification and Quality Protocol
 
-**Version:** 0.1.0
-**Status:** Draft Specification
+> Version 0.1.0 | Engineering Assurance Specification
 
-## 1. Purpose
+This specification defines the verification requirements,
+evidence standards, acceptance controls, and failure-reporting
+rules applied to engineering deliverables under PREZEKC AI.
 
-Verification Protocol menetapkan
-standar pemeriksaan kualitas dan
-konsistensi hasil pekerjaan.
+Verification establishes whether an artifact satisfies
+defined criteria. It does not replace human authorization.
 
-AI harus membedakan antara:
-- Hasil yang telah dibuat.
-- Hasil yang telah diperiksa.
-- Hasil yang disetujui manusia.
-- Hasil yang berhasil diuji secara nyata.
+Agents must not report successful verification without
+executing or inspecting the applicable evidence.
 
-## 2. Verification Principles
+## 1. Verification Model
 
-1. Evidence over assumptions.
-2. Verify against defined criteria.
-3. Never fabricate test results.
-4. Report failures transparently.
-5. Preserve requirement traceability.
-6. Reverify affected outputs after changes.
+Each verification activity must establish:
 
-## 3. Verification States
+1. The artifact being evaluated.
+2. The applicable requirements or acceptance criteria.
+3. The verification method.
+4. The environment and tools used, where relevant.
+5. The observed result.
+6. Supporting evidence.
+7. Remaining defects or limitations.
+8. The resulting verification status.
 
-NOT_CHECKED:
-Belum dilakukan pemeriksaan.
+Verification must be proportional to the artifact's
+complexity, operational risk, and potential impact.
 
-PASS:
-Semua kriteria wajib pada pemeriksaan
-tersebut telah terpenuhi.
+## 2. Verification Status
 
-PASS_WITH_NOTES:
-Tidak ada kegagalan kriteria wajib,
-tetapi terdapat catatan non-blocking.
+| Status | Definition |
+|---|---|
+| `PASS` | All applicable mandatory checks passed. |
+| `PARTIAL` | Some checks passed; required coverage remains incomplete. |
+| `FAIL` | At least one mandatory criterion failed. |
+| `BLOCKED` | Verification cannot proceed due to a dependency or restriction. |
+| `NOT_RUN` | The verification activity was not executed. |
+| `N/A` | The criterion does not apply, with documented justification. |
 
-FAIL:
-Terdapat kriteria wajib yang gagal.
+`PASS` must not be assigned solely because an artifact
+appears correct or because a similar test passed previously.
 
-BLOCKED:
-Pemeriksaan tidak dapat dilakukan
-karena kendala atau data yang kurang.
+Approval is maintained independently using the
+governance process.
 
-NOT_APPLICABLE:
-Pemeriksaan tidak relevan dan
-alasannya sudah didokumentasikan.
+## 3. Evidence Classification
 
-## 4. System Analysis Verification
+Verification evidence may include:
 
-Periksa:
-- Identitas sistem atau proses.
-- Aktor yang terlibat.
-- Alur kerja yang berjalan.
-- Masalah yang teridentifikasi.
-- Penyebab dan dampak.
-- Sumber informasi.
-- Asumsi dan keterbatasan.
+| Type | Examples |
+|---|---|
+| `DOCUMENT_REVIEW` | Inspected content, cross-references, requirements. |
+| `SOURCE_INSPECTION` | Code or configuration inspection. |
+| `STATIC_ANALYSIS` | Linting, type checks, security analysis. |
+| `BUILD_EXECUTION` | Actual build output and exit status. |
+| `TEST_EXECUTION` | Test results and execution records. |
+| `RUNTIME_OBSERVATION` | Verified application behavior. |
+| `STAKEHOLDER_REVIEW` | Recorded review and acceptance decision. |
 
-FAIL jika data faktual utama dikarang
-atau tidak dapat dibedakan dari asumsi.
+Evidence must identify what was checked and what
+remains unverified.
 
-## 5. Comparative Study Verification
+An external citation supports a research claim but
+does not establish software runtime correctness.
 
-Periksa:
-- Identitas sistem pembanding.
-- Relevansi pembanding.
-- Sumber yang dapat diperiksa.
-- Kelebihan dan kekurangan.
-- Kriteria perbandingan yang konsisten.
-- Kesimpulan yang didukung bukti.
+## 4. Verification Record Contract
 
-FAIL jika referensi atau sistem
-pembanding dibuat secara fiktif.
+Every substantive verification record should contain:
 
-## 6. Requirement Analysis Verification
+```yaml
+verification_id: VER-001
+artifact: "SRS"
+artifact_version: "1.0"
+baseline: "PRD v1.0"
 
-Periksa:
-- Identifikasi stakeholder.
-- Sumber kebutuhan.
-- Kelengkapan kebutuhan utama.
-- Prioritas kebutuhan.
-- Konflik atau ambiguitas.
-- Batasan proyek.
-- Asumsi yang belum tervalidasi.
+method: DOCUMENT_REVIEW
+criteria:
+  - "All mandatory PRD requirements mapped"
+  - "All SRS requirements are testable"
 
-Kebutuhan yang belum tervalidasi
-harus ditandai secara eksplisit.
+status: NOT_RUN
+evidence: []
+findings: []
+limitations: []
 
-## 7. PRD Verification
+reviewed_by: null
+review_date: null
+```
 
-Minimum checklist:
-- Product vision tersedia.
-- Problem statement jelas.
-- Target users teridentifikasi.
-- Goals dan non-goals tersedia.
-- Scope terdokumentasi.
-- Fitur memiliki ID.
-- Fitur memiliki alasan kebutuhan.
-- Prioritas tersedia.
-- Acceptance criteria tersedia.
-- Indikator keberhasilan dijelaskan.
-- Tidak terdapat konflik kebutuhan utama.
+The example is a record schema, not an actual test result.
 
-PRD dapat diajukan untuk persetujuan
-jika pemeriksaan wajib PASS.
+Evidence must never be fabricated to satisfy a required field.
 
-PRD tidak otomatis APPROVED
-karena telah lolos pemeriksaan.
+## 5. Existing System Analysis Gate
 
-## 8. SRS Verification
+The analysis report must establish:
 
-Minimum checklist:
-- SRS mengacu pada PRD yang disetujui.
-- Kebutuhan fungsional memiliki ID.
-- Kebutuhan nonfungsional terdefinisi.
-- Aturan bisnis terdokumentasi.
-- Aktor dan hak akses dijelaskan.
-- Input dan output relevan dijelaskan.
-- Validasi dan error handling tersedia.
-- Batasan sistem dijelaskan.
-- Acceptance criteria dapat diuji.
-- Tidak bertentangan dengan PRD.
-- RTM tersedia.
+- Identifiable current processes or system boundaries.
+- Actors and responsibilities.
+- Relevant information flows.
+- Observed or reported operational problems.
+- Sources supporting material findings.
+- Explicit assumptions and evidence gaps.
+- Constraints and potential impacts.
 
-Setiap kebutuhan harus:
-- Jelas.
-- Konsisten.
-- Dapat diuji.
-- Dapat ditelusuri.
-- Relevan dengan ruang lingkup.
+A claim presented as observed must have corresponding
+inspection, interview, or documentary evidence.
 
-Kebutuhan nonfungsional yang menyatakan
-target numerik harus menjelaskan
-kondisi dan metode pengukurannya.
+When available evidence is insufficient, report the
+affected findings as unresolved rather than verified.
 
-## 9. Requirement Traceability
+## 6. Comparative Study Gate
 
-Format hubungan utama:
+Comparative analysis must be evaluated for:
 
-PRD Requirement
-  -> SRS Requirement
-  -> Design Component
-  -> Test Case
+- Identifiable comparison candidates.
+- Relevant and consistent evaluation criteria.
+- Traceable sources.
+- Accurate representation of documented capabilities.
+- Separation of verified findings and assumptions.
+- Conclusions supported by the comparison.
 
-Contoh:
+A missing feature description is not conclusive
+evidence that the feature does not exist.
 
-PRD-FR-001
-  -> SRS-FR-001.1
-  -> DESIGN-001
-  -> TEST-001
+Fabricated systems, references, or comparative
+findings invalidate the affected analysis.
 
-Verifikasi harus mengidentifikasi:
-- PRD tanpa kebutuhan SRS terkait.
-- SRS tanpa sumber kebutuhan yang sah.
-- SRS tanpa komponen desain.
-- Kebutuhan implementasi tanpa test case.
-- Test case tanpa kebutuhan yang diuji.
+## 7. Requirement Analysis Gate
 
-Pada fase awal, kolom desain dan test
-dapat berstatus PENDING.
+The requirement analysis must identify:
 
-Sebelum penerimaan akhir, setiap
-kebutuhan wajib harus memiliki
-bukti implementasi dan verifikasi
-atau pengecualian yang disetujui.
+- Stakeholders and user groups.
+- Requirement sources.
+- Functional and operational needs.
+- Relevant business rules.
+- Data and integration needs.
+- Priorities and dependencies.
+- Conflicts and unresolved assumptions.
+- Constraints affecting feasibility.
 
-## 10. System Design Verification
+Requirements that are ambiguous or contradictory
+must be flagged before baseline approval.
 
-Periksa:
-- Desain memenuhi kebutuhan SRS.
-- Arsitektur terdokumentasi.
-- Komponen utama teridentifikasi.
-- Struktur data konsisten.
-- Hak akses diperhitungkan.
-- Integrasi sesuai kebutuhan.
-- UI/UX mempertimbangkan pengguna.
-- Keputusan teknologi memiliki alasan.
-- Risiko utama diidentifikasi.
+## 8. PRD Verification Gate
 
-Diagram harus sesuai dengan sistem
-yang benar-benar direncanakan.
+The PRD must satisfy the following mandatory criteria:
 
-## 11. Implementation Verification
+| ID | Verification Criterion |
+|---|---|
+| `PRD-V01` | Product objective and problem statement are defined. |
+| `PRD-V02` | Stakeholders and target users are identified. |
+| `PRD-V03` | Product scope and exclusions are explicit. |
+| `PRD-V04` | Major product capabilities have stable identifiers. |
+| `PRD-V05` | Capabilities are traceable to justified needs. |
+| `PRD-V06` | Priorities and dependencies are documented. |
+| `PRD-V07` | Acceptance outcomes are defined. |
+| `PRD-V08` | Success criteria and constraints are identified. |
+| `PRD-V09` | Material contradictions are resolved or flagged. |
+| `PRD-V10` | Approval status and document version are recorded. |
 
-Periksa:
-- Kode sesuai kebutuhan.
-- Tidak ada perubahan di luar ruang lingkup.
-- Konfigurasi tidak mengekspos rahasia.
-- Fitur utama dapat dijalankan.
-- Error handling relevan tersedia.
-- Build dan test telah diperiksa.
-- Hasil pemeriksaan terdokumentasi.
+The PRD must pass applicable checks before submission
+for baseline approval.
 
-Jika kode tidak dapat dijalankan,
-jangan menyatakan implementasi berhasil.
+Passing verification does not automatically establish
+human approval.
 
-## 12. Platform Verification
+## 9. SRS Verification Gate
 
-### WEB
+The SRS must reference an approved PRD baseline.
 
-Periksa sesuai kebutuhan:
-- Build aplikasi.
-- Alur frontend dan backend.
-- Responsivitas.
+Mandatory criteria:
+
+| ID | Verification Criterion |
+|---|---|
+| `SRS-V01` | Approved PRD version is referenced. |
+| `SRS-V02` | Functional requirements have unique identifiers. |
+| `SRS-V03` | Non-functional requirements are specified. |
+| `SRS-V04` | Actors and authorization boundaries are defined. |
+| `SRS-V05` | Inputs, outputs, and system behavior are identifiable. |
+| `SRS-V06` | Relevant validation and failure behavior are documented. |
+| `SRS-V07` | Business rules and interfaces are specified. |
+| `SRS-V08` | Requirements are measurable or objectively testable. |
+| `SRS-V09` | PRD-to-SRS traceability is complete or exceptions approved. |
+| `SRS-V10` | Unapproved scope expansion is absent. |
+
+Each requirement must be:
+
+- Clear.
+- Unambiguous.
+- Consistent.
+- Feasible within documented constraints.
+- Verifiable.
+- Traceable to an approved source.
+
+Non-functional requirements containing numerical targets
+must specify measurement conditions and methods.
+
+Statements such as "the system must be fast" are
+insufficient without measurable acceptance criteria.
+
+## 10. Requirement Traceability Verification
+
+The Requirement Traceability Matrix must preserve
+relationships across the engineering lifecycle.
+
+```text
+PRODUCT REQUIREMENT
+        |
+        v
+SYSTEM REQUIREMENT
+        |
+        v
+DESIGN ELEMENT
+        |
+        v
+IMPLEMENTATION
+        |
+        v
+TEST CASE
+```
+
+The verification process must detect:
+
+- Missing PRD-to-SRS mappings.
+- Unsupported SRS additions.
+- Duplicate requirement identifiers.
+- Conflicting requirement definitions.
+- Design elements without justified requirements.
+- Requirements without planned test coverage.
+- Tests that do not correspond to defined behavior.
+- Broken references after approved changes.
+
+### 10.1 Coverage Rules
+
+During SRS preparation:
+
+- Mandatory PRD requirements must have SRS coverage.
+- Unresolved requirements must be explicitly recorded.
+- Design and test mappings may remain pending.
+
+During design:
+
+- Applicable SRS requirements must have design coverage.
+- Unmapped requirements must be reported.
+
+During implementation:
+
+- Implemented behavior must reference relevant requirements.
+- Requirement-related test coverage must be established.
+
+Before final acceptance:
+
+- Mandatory requirements require verification evidence.
+- Exceptions must be explicitly approved and documented.
+
+### 10.2 Coverage Reporting
+
+Coverage must distinguish:
+
+- Covered requirements.
+- Uncovered requirements.
+- Approved exceptions.
+- Not-applicable requirements.
+
+A complete document is not necessarily a complete
+or verified implementation.
+
+## 11. System Design Verification Gate
+
+The design must be checked against the approved SRS.
+
+Required concerns include:
+
+- Architectural completeness.
+- Component responsibility boundaries.
+- Data model consistency.
+- Interface compatibility.
+- Authentication and authorization.
+- External integration behavior.
+- Failure handling and recovery.
+- UI/UX requirements where applicable.
+- Technology justification.
+- Requirement traceability.
+
+Design documents must distinguish planned architecture
+from implemented architecture.
+
+Diagrams must reflect the intended system behavior
+and must not contradict textual specifications.
+
+## 12. Implementation Verification Gate
+
+Before accepting an implementation change, verify:
+
+1. The change is within the approved task scope.
+2. Relevant requirements are identified.
+3. Existing behavior and dependencies were considered.
+4. The implementation satisfies applicable specifications.
+5. Validation and error handling are implemented as needed.
+6. Relevant tests have been executed where possible.
+7. Unrelated behavior remains unaffected.
+8. No secrets or sensitive data were introduced.
+9. Known failures and limitations are documented.
+
+Verification should begin with focused checks and expand
+to integration or regression coverage according to risk.
+
+A successful build does not establish functional correctness.
+
+A successful unit test does not establish production readiness.
+
+## 13. Platform Verification
+
+Platform-specific verification must correspond to the
+approved application targets.
+
+### 13.1 Web
+
+Applicable checks may include:
+
+- Application build.
+- Frontend and backend integration.
+- Authentication and access control.
+- API contract behavior.
+- Responsive layout.
 - Browser compatibility.
-- Authentication.
-- API integration.
+- Accessibility requirements.
+- Data integrity.
 - Error handling.
 - Security checks.
 
-### ANDROID
+### 13.2 Android
 
-Periksa sesuai kebutuhan:
-- Android build.
-- Install pada perangkat atau emulator.
-- Navigasi.
-- Permissions.
-- API integration.
-- Device compatibility.
-- Crash dan error handling.
+Applicable checks may include:
 
-### IOS
+- Android build completion.
+- Installation on supported devices or emulators.
+- Navigation and lifecycle behavior.
+- Device permission handling.
+- API connectivity.
+- Offline behavior where specified.
+- Error and crash handling.
+- Compatibility against supported Android versions.
 
-Periksa sesuai kebutuhan:
-- iOS build.
-- Instalasi pada simulator atau perangkat.
-- Navigasi.
-- Permissions.
-- API integration.
-- Device compatibility.
-- Crash dan error handling.
+### 13.3 iOS
 
-### CROSS-PLATFORM
+Applicable checks may include:
 
-Hasil pengujian Android tidak otomatis
-membuktikan aplikasi berhasil di iOS.
+- iOS build completion.
+- Installation on supported simulators or devices.
+- Navigation and lifecycle behavior.
+- Platform permission handling.
+- API connectivity.
+- Error and crash handling.
+- Compatibility against supported iOS versions.
+- Signing and distribution requirements.
 
-Kedua platform harus memiliki
-bukti pemeriksaan masing-masing.
+### 13.4 Cross-Platform
 
-## 13. Test Evidence
+Android and iOS verification must be recorded separately.
 
-Setiap hasil pengujian harus mencatat:
+Shared code does not establish equivalent behavior
+across operating systems.
 
-Test ID:
-Requirement ID:
-Test Objective:
-Environment:
-Test Steps:
-Expected Result:
-Actual Result:
-Status:
-Evidence:
-Executed By:
-Execution Date:
+When an iOS or Android verification environment
+is unavailable, mark the affected checks as `BLOCKED`
+or `NOT_RUN`, as appropriate.
 
-Jika pengujian tidak dijalankan,
-status harus NOT_CHECKED atau BLOCKED,
-bukan PASS.
+Never substitute successful execution on one platform
+for unperformed verification on another.
 
-## 14. Severity Classification
+## 14. Test Case Contract
 
-CRITICAL:
-Berisiko menyebabkan kebocoran data,
-kerusakan data serius, atau kegagalan
-fungsi inti yang tidak dapat diterima.
+Test cases should contain:
 
-HIGH:
-Fungsi utama gagal atau kebutuhan
-wajib tidak terpenuhi.
+```yaml
+test_id: TC-001
+requirement_ids:
+  - SRS-FR-001.2
 
-MEDIUM:
-Sebagian fungsi terganggu,
-tetapi tersedia penanganan sementara.
+objective: "Reject invalid email input"
+environment: "Test environment"
 
-LOW:
-Masalah kecil yang tidak
-menghambat fungsi utama.
+preconditions:
+  - "Registration interface is accessible"
 
-Kegagalan CRITICAL atau HIGH yang masih
-terbuka harus menghalangi penerimaan
-rilis produksi, kecuali terdapat proses
-penanganan risiko yang sah dan terdokumentasi
-sesuai kebijakan organisasi.
+steps:
+  - "Open registration interface"
+  - "Enter invalid email format"
+  - "Submit registration"
 
-## 15. Final Verification Gate
+expected_result: "Registration is rejected"
 
-Sebelum fase dinyatakan selesai:
+actual_result: null
+status: NOT_RUN
+evidence: []
+executed_by: null
+executed_at: null
+```
 
-1. Semua output wajib tersedia.
-2. Kriteria wajib telah diperiksa.
-3. Tidak ada konflik kebutuhan kritis.
-4. Masalah yang diketahui telah dicatat.
-5. Bukti pemeriksaan tersedia.
-6. Status pemeriksaan ditetapkan.
-7. Persetujuan manusia diperoleh
-   jika fase mensyaratkannya.
+Do not populate actual results until the test is executed.
 
-## 16. Verification Report Format
+Failed tests must remain visible until corrected
+and successfully reverified.
 
-Verification ID:
-Project:
-Phase:
-Deliverable:
-Requirement References:
-Criteria:
-Methods:
-Evidence:
-Results:
-Issues:
-Risk Level:
-Overall Status:
-Reviewed By:
-Review Date:
+## 15. Defect Severity
 
-## 17. Honest Completion Reporting
+| Level | Definition |
+|---|---|
+| `CRITICAL` | Severe security, safety, or data integrity failure. |
+| `HIGH` | Mandatory functionality is unavailable or seriously impaired. |
+| `MEDIUM` | Functionality is degraded with limited operational impact. |
+| `LOW` | Minor defect without significant functional impact. |
 
-AI wajib menggunakan pernyataan
-yang sesuai bukti.
+Severity and business priority are separate classifications.
 
-Contoh:
-- "Dokumen berhasil disusun."
-- "Struktur telah diperiksa."
-- "Pengujian belum dijalankan."
-- "Build Android berhasil."
-- "Build iOS belum diverifikasi."
-- "PRD menunggu persetujuan pengguna."
+Unresolved critical or high-severity defects normally
+block production acceptance.
 
-Tidak boleh menyatakan:
-- Semua fitur berhasil jika belum diuji.
-- Aplikasi siap produksi tanpa verifikasi.
-- Dokumen sudah disetujui tanpa keputusan manusia.
+Any exception must follow explicit risk acceptance
+under applicable governance rules.
+
+## 16. Regression and Change Verification
+
+After an approved change:
+
+1. Identify affected requirements.
+2. Inspect downstream traceability relationships.
+3. Determine impacted components.
+4. Update affected test cases.
+5. Execute relevant regression checks.
+6. Record the verification results.
+7. Report uncovered or blocked scenarios.
+
+Do not assume unchanged behavior remains correct
+when its dependencies or contracts have changed.
+
+## 17. Release Verification Gate
+
+A release candidate must not be reported as ready
+unless the required release criteria are satisfied.
+
+Minimum release considerations:
+
+- Approved requirements and release scope.
+- Required functional verification.
+- Applicable security checks.
+- Platform-specific build and runtime evidence.
+- Data migration and recovery readiness, if relevant.
+- Unresolved defect assessment.
+- Deployment and rollback procedures.
+- Human release authorization.
+
+An approved release may still fail during deployment.
+Post-deployment verification is therefore required.
+
+## 18. Verification Handoff
+
+Every material verification activity must produce
+a concise, evidence-based report.
+
+Recommended format:
+
+```text
+Verification ID : VER-001
+Artifact        : <name and version>
+Baseline        : <approved reference>
+Scope           : <verified behavior>
+Methods         : <checks performed>
+Evidence        : <actual results or references>
+Status          : PASS | PARTIAL | FAIL | BLOCKED | NOT_RUN
+Open Issues     : <remaining findings>
+Reviewer        : <responsible person or agent>
+```
+
+Do not use `PASS` when mandatory verification
+has not been executed.
+
+Do not describe unapproved documents as accepted baselines.
+
+A verification report must accurately reflect
+the work performed and its limitations.
 
 ---
 
-PREZEKC AI Verification Protocol
+## Related Specifications
+
+- [Agent Operating Contract](../AGENTS.md)
+- [Framework Architecture](../FRAMEWORK.md)
+- [Governance Protocol](governance.md)
+- [Workflow Protocol](workflow.md)
+
+**PREZEKC AI Verification and Quality Protocol — v0.1.0**
