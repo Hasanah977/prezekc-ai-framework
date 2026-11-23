@@ -1,17 +1,52 @@
+<div align="center">
 
 # PREZEKC AI Framework
 
 **A requirements-driven framework for AI-assisted project engineering.**
 
-PREZEKC AI provides a structured operating model for using artificial intelligence throughout system analysis, requirements engineering, software architecture, implementation, verification, and maintenance.
+![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
+![Status](https://img.shields.io/badge/status-core%20specification-orange?style=flat-square)
+![Stage](https://img.shields.io/badge/stage-initial%20development-yellow?style=flat-square)
+![Type](https://img.shields.io/badge/type-specification--driven-8A2BE2?style=flat-square)
+![Platforms](https://img.shields.io/badge/platform-web%20%7C%20android%20%7C%20ios-3DDC84?style=flat-square)
+![Stars](https://img.shields.io/github/stars/Hasanah977/prezekc-ai-framework?style=flat-square&logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/Hasanah977/prezekc-ai-framework?style=flat-square)
 
-Its central engineering principle is that every implementation decision must be traceable to established requirements, and every completion claim must be supported by verifiable evidence.
+Structured operating model for using AI across system analysis, requirements engineering,<br>
+software architecture, implementation, verification, and maintenance.
 
-> **Version:** 0.1.0 (Initial Development)
->
-> **Status:** Core Specification
->
-> **Scope:** System Analysis, PRD-to-SRS Engineering, System Design, Web and Mobile Development, Verification
+[📖 Overview](#1-overview) · [🧭 Lifecycle](#3-engineering-lifecycle) · [📋 Requirements](#4-requirements-engineering) · [🚀 Getting Started](#11-getting-started) · [🗺️ Roadmap](#12-development-roadmap)
+
+</div>
+
+---
+
+> **Central principle:** every implementation decision must be traceable to established requirements, and every completion claim must be supported by verifiable evidence.
+
+| | |
+|---|---|
+| **Version** | 0.1.0 (Initial Development) |
+| **Status** | Core Specification |
+| **Scope** | System Analysis, PRD-to-SRS Engineering, System Design, Web and Mobile Development, Verification |
+
+---
+
+## Contents
+
+- [1. Overview](#1-overview)
+- [2. Framework Architecture](#2-framework-architecture)
+- [3. Engineering Lifecycle](#3-engineering-lifecycle)
+- [4. Requirements Engineering](#4-requirements-engineering)
+- [5. System Design](#5-system-design)
+- [6. Supported Development Platforms](#6-supported-development-platforms)
+- [7. AI Agent Model](#7-ai-agent-model)
+- [8. Governance and Human Approval](#8-governance-and-human-approval)
+- [9. Verification and Quality Assurance](#9-verification-and-quality-assurance)
+- [10. Repository Structure](#10-repository-structure)
+- [11. Getting Started](#11-getting-started)
+- [12. Development Roadmap](#12-development-roadmap)
+- [13. Engineering Constraints](#13-engineering-constraints)
+- [14. Project Status](#14-project-status)
 
 ---
 
@@ -526,18 +561,18 @@ Those capabilities are planned for subsequent development milestones.
 
 | Milestone | Status |
 |---|---|
-| Framework architecture definition | In Progress |
-| Agent operating contract | In Progress |
-| Governance and workflow protocols | In Progress |
-| System analysis and research skills | Planned |
-| PRD and SRS templates | Planned |
-| Requirement traceability validation | Planned |
-| PRD-to-SRS automation | Planned |
-| System design workflows | Planned |
-| Web development workflows | Planned |
-| Android and iOS workflows | Planned |
-| Automated verification tools | Planned |
-| Multi-project framework evaluation | Planned |
+| Framework architecture definition | 🟡 In Progress |
+| Agent operating contract | 🟡 In Progress |
+| Governance and workflow protocols | 🟡 In Progress |
+| System analysis and research skills | ⚪ Planned |
+| PRD and SRS templates | ⚪ Planned |
+| Requirement traceability validation | ⚪ Planned |
+| PRD-to-SRS automation | ⚪ Planned |
+| System design workflows | ⚪ Planned |
+| Web development workflows | ⚪ Planned |
+| Android and iOS workflows | ⚪ Planned |
+| Automated verification tools | ⚪ Planned |
+| Multi-project framework evaluation | ⚪ Planned |
 
 Roadmap entries describe intended development work and must not be interpreted as completed functionality.
 
@@ -564,20 +599,19 @@ These constraints apply across supported project types.
 
 ## 14. Project Status
 
-**Project:** PREZEKC AI Framework
-
-**Version:** 0.1.0
-
-**Development Stage:** Initial Core Development
-
-**Primary Focus:** Requirements-Driven AI-Assisted Engineering
-
-**Implementation Status:** Specification in Progress
-
-**Repository:** https://github.com/Hasanah977/prezekc-ai-framework
+| | |
+|---|---|
+| **Project** | PREZEKC AI Framework |
+| **Version** | 0.1.0 |
+| **Development Stage** | Initial Core Development |
+| **Primary Focus** | Requirements-Driven AI-Assisted Engineering |
+| **Implementation Status** | Specification in Progress |
+| **Repository** | https://github.com/Hasanah977/prezekc-ai-framework |
 
 ---
 
-**PREZEKC AI Framework**
+<div align="center">
 
-Version 0.1.0 - Initial Development
+**PREZEKC AI Framework** · Version 0.1.0 · Initial Development
+
+</div>
