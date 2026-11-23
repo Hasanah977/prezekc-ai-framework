@@ -1,0 +1,9 @@
+{
+  "document_id": "RTM",
+  "version": "1.0",
+  "source_prd_version": "1.0",
+  "source_srs_version": "1.0",
+  "mappings": [
+    {"prd_id": "PRD-FR-001", "srs_id": "SRS-FR-001.1"}
+  ]
+}

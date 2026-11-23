@@ -1,0 +1,9 @@
+{
+  "document_id": "SRS",
+  "version": "1.0",
+  "status": "APPROVED",
+  "source_prd_version": "1.0",
+  "requirements": [
+    {"id": "SRS-FR-001.1", "parent_requirements": ["PRD-FR-001"]}
+  ]
+}

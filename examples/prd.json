@@ -1,0 +1,12 @@
+{
+  "document_id": "PRD",
+  "version": "1.0",
+  "status": "APPROVED",
+  "approval": {
+    "approved_by": "Example Project Owner",
+    "decision_reference": "EXAMPLE-DEC-001"
+  },
+  "requirements": [
+    {"id": "PRD-FR-001", "priority": "MUST"}
+  ]
+}
