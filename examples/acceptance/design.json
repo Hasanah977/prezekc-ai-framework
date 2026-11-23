@@ -1,0 +1,7 @@
+{
+  "design_elements": [
+    {"id": "DES-001", "srs_ids": ["SRS-FR-001.1"]},
+    {"id": "DES-002", "srs_ids": ["SRS-FR-001.2"]},
+    {"id": "DES-003", "srs_ids": ["SRS-FR-001.3"]}
+  ]
+}
