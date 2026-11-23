@@ -200,9 +200,10 @@ been established by an authorized stakeholder.
 | Field | Value |
 |---|---|
 | Decision | PENDING |
-| Approved By | Pending |
-| Approval Date | Pending |
-| Approved Version | Pending |
+| Approved By | PENDING |
+| Decision Reference | PENDING |
+| Approval Date | PENDING |
+| Approved Version | PENDING |
 
 ## 16. Revision History
 
