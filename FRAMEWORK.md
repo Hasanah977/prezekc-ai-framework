@@ -1,468 +1,956 @@
 
-# PREZEKC AI FRAMEWORK
+# PREZEKC AI — Framework Architecture
 
-> Universal AI-Assisted System Analysis & Software Development Framework
+> Version 0.1.0 | Architecture and Engineering Specification
+>
+> Classification: Universal AI-Assisted Project Engineering Framework
+>
+> Status: Initial Specification
 
-**Versi:** 0.1.0  
-**Status:** Initial Development  
-**Jenis:** Universal AI Governance & Project Lifecycle Framework
+PREZEKC AI defines a requirements-driven operating framework for AI-assisted system analysis, research, software engineering, and project delivery.
+
+The framework establishes a consistent relationship between problem evidence, product requirements, software specifications, system design, implementation, and verification.
+
+This document describes the framework architecture, component boundaries, lifecycle dependencies, artifact contracts, and extension model.
+
+Implementation-specific instructions are maintained in the corresponding operating protocols.
 
 ---
 
-## 1. Pendahuluan
+## 1. Architectural Scope
 
-PREZEKC AI adalah framework universal berbantuan
-kecerdasan buatan yang dirancang untuk mendukung
-proses analisis, penelitian, rekayasa kebutuhan,
-perancangan, implementasi, pengujian, deployment,
-dan pemeliharaan proyek.
+PREZEKC AI operates as an engineering governance and workflow framework rather than a programming-language-specific application framework.
 
-PREZEKC AI tidak terikat pada satu bahasa pemrograman,
-platform, industri, atau teknologi tertentu.
+It defines how AI assistants should interpret project context, coordinate engineering tasks, produce controlled deliverables, and verify outcomes against established requirements.
 
-Framework ini dapat digunakan untuk:
-- Sistem informasi berbasis web.
-- Aplikasi Android.
-- Aplikasi iOS.
-- Aplikasi mobile cross-platform.
-- Sistem backend dan API.
-- Penelitian dan dokumentasi akademik.
-- Proyek perangkat lunak lainnya.
+### 1.1 Objectives
 
-AI berperan sebagai asisten analisis dan pelaksanaan.
-Manusia tetap bertanggung jawab atas keputusan
-dan persetujuan akhir.
+The architecture is designed to:
 
-## 2. Tujuan Framework
+1. Establish evidence-based problem analysis before solution development.
+2. Standardize requirements documentation across different project types.
+3. Preserve the relationship between PRD and derived SRS requirements.
+4. Maintain traceability from approved requirements to implementation and tests.
+5. Separate human authority from AI execution responsibilities.
+6. Support reusable workflows, agent roles, and engineering skills.
+7. Accommodate web, Android, iOS, and cross-platform development.
+8. Enforce verification before reporting successful completion.
+9. Maintain project continuity through durable context and decision records.
 
-PREZEKC AI dikembangkan untuk:
+### 1.2 Architectural Constraints
 
-1. Membantu identifikasi masalah secara sistematis.
-2. Menganalisis proses dan sistem yang sudah berjalan.
-3. Melakukan studi komparasi berbasis bukti.
-4. Mengidentifikasi kebutuhan pengguna.
-5. Menghasilkan dokumen PRD yang terstruktur.
-6. Mengembangkan PRD menjadi SRS yang terukur.
-7. Menjaga keterlacakan kebutuhan antar dokumen.
-8. Mendukung perancangan arsitektur dan UI/UX.
-9. Membantu implementasi berbagai jenis aplikasi.
-10. Menjamin setiap hasil melalui prosedur verifikasi.
-11. Mendokumentasikan keputusan dan perubahan proyek.
-12. Mendukung kolaborasi manusia dan AI.
+PREZEKC AI must remain:
 
-## 3. Prinsip Utama
+- **Technology-agnostic:** No mandatory programming language or application stack.
+- **Model-independent:** No dependency on a single AI model or provider.
+- **Requirements-driven:** Engineering decisions must reference established requirements.
+- **Evidence-based:** Findings and verification claims must have identifiable support.
+- **Human-governed:** Consequential decisions require appropriate human authorization.
+- **Modular:** Specialized capabilities must be separable from core governance.
+- **Traceable:** Requirements and controlled changes must preserve stable references.
+- **Incremental:** Projects may progress iteratively without bypassing required controls.
 
-### 3.1 Analysis First
+These constraints apply to all framework extensions.
 
-AI harus memahami permasalahan, tujuan, pengguna,
-dan batasan proyek sebelum menyusun solusi.
+---
 
-### 3.2 Human-Centered Decision Making
+## 2. Logical Architecture
 
-Keputusan penting harus disetujui manusia,
-terutama perubahan ruang lingkup, kebutuhan,
-arsitektur kritis, dan penerimaan hasil akhir.
+PREZEKC AI separates project authority, execution coordination, engineering capabilities, artifact management, and verification.
 
-### 3.3 Evidence-Based Research
+```text
++----------------------------------------------------------+
+|                      PROJECT OWNER                       |
+|          Objectives | Scope | Decisions | Approval        |
++-----------------------------+----------------------------+
+                              |
+                              v
++----------------------------------------------------------+
+|                     PROJECT CONTEXT                      |
+|       Requirements | Decisions | Tasks | Constraints      |
++-----------------------------+----------------------------+
+                              |
+                              v
++----------------------------------------------------------+
+|                    AI ORCHESTRATOR                       |
+|      Task Routing | Dependencies | Execution Control     |
++-------------+--------------------+-----------------------+
+              |                    |
+              v                    v
++-------------------------+  +-----------------------------+
+|    GOVERNANCE LAYER     |  |       WORKFLOW LAYER        |
+| Authority & Permissions |  | Lifecycle & Phase Control   |
+| Approval & Change Rules |  | Entry & Exit Conditions     |
++-------------+-----------+  +--------------+--------------+
+              |                             |
+              +--------------+--------------+
+                             |
+                             v
++----------------------------------------------------------+
+|                    EXECUTION LAYER                       |
+|                                                          |
+|       AGENTS          SKILLS          TEMPLATES           |
+|       Roles           Procedures      Artifact Formats    |
++-----------------------------+----------------------------+
+                              |
+                              v
++----------------------------------------------------------+
+|                    ARTIFACT LAYER                        |
+|       Analysis | PRD | SRS | Design | Code | Tests         |
++-----------------------------+----------------------------+
+                              |
+                              v
++----------------------------------------------------------+
+|                   VERIFICATION LAYER                     |
+|     Evidence | Validation | Traceability | Quality        |
++-----------------------------+----------------------------+
+                              |
+                              v
++----------------------------------------------------------+
+|                   HUMAN ACCEPTANCE                       |
+|             Review | Approval | Release Control          |
++----------------------------------------------------------+
+```
 
-Informasi penelitian harus berasal dari
-sumber yang dapat diperiksa.
+This is the intended logical architecture.
 
-AI dilarang mengarang:
-- Hasil wawancara.
-- Data observasi.
-- Referensi ilmiah.
-- Statistik.
-- Hasil pengujian.
-- Fakta tentang sistem pembanding.
+In version 0.1.0, the architecture is represented through Markdown-based specifications and operating contracts.
 
-### 3.4 Requirement Traceability
+A standalone orchestration runtime, executable agent engine, and automated validation pipeline have not yet been implemented.
 
-Setiap kebutuhan memiliki identitas yang
-dapat ditelusuri dari analisis hingga pengujian.
+---
 
-### 3.5 PRD-to-SRS Transformation
+## 3. Core Components
 
-SRS harus dikembangkan dari PRD yang
-telah disetujui.
+### 3.1 Project Owner
 
-Kebutuhan SRS tidak boleh bertentangan
-dengan ruang lingkup PRD.
+The Project Owner is the designated human authority responsible for accepting requirements, approving consequential changes, and determining project completion.
 
-### 3.6 Modular AI Workflow
+Responsibilities include:
 
-Pekerjaan dibagi menjadi agents, skills,
-rules, templates, dan workflows.
+- Defining project objectives and constraints.
+- Confirming project scope.
+- Approving PRD and SRS baselines.
+- Evaluating material changes.
+- Accepting architecture decisions.
+- Authorizing production releases.
+- Reviewing unresolved risks.
 
-Modul dipilih berdasarkan jenis proyek.
+AI-generated recommendations do not replace owner decisions.
 
-### 3.7 Verified Implementation
+### 3.2 Project Context
 
-AI tidak boleh menyatakan tugas selesai
-tanpa memeriksa hasil sesuai kriteria
-penerimaan yang relevan.
+Project Context contains the information required to execute engineering tasks consistently across sessions and tools.
 
-## 4. Arsitektur Framework
+Minimum context includes:
 
-PREZEKC AI terdiri atas tujuh komponen.
+| Record | Purpose |
+|---|---|
+| Project Profile | Project identity, type, objectives, and platform targets. |
+| Requirement Baseline | Current approved PRD and SRS references. |
+| Decision Register | Architectural and product decisions with rationale. |
+| Task Register | Active tasks, ownership, dependencies, and status. |
+| Change Register | Controlled changes and affected artifacts. |
+| Verification Register | Checks performed, evidence, and unresolved findings. |
 
-### 4.1 Human Controller
+Context must be recoverable from durable project artifacts.
 
-Pengguna yang menentukan:
-- Tujuan proyek.
-- Ruang lingkup.
-- Prioritas.
-- Batasan.
-- Persetujuan dokumen.
-- Keputusan pengembangan.
+Conversation history may provide supplementary information but must not be treated as the authoritative source of implemented behavior.
 
-### 4.2 Project Orchestrator
+### 3.3 AI Orchestrator
 
-Komponen logis yang bertanggung jawab untuk:
-- Memahami instruksi pengguna.
-- Mengidentifikasi jenis proyek.
-- Memilih workflow.
-- Mengarahkan penggunaan skills.
-- Memeriksa ketergantungan tugas.
-- Memantau status pekerjaan.
+The AI Orchestrator is responsible for coordinating the selected engineering workflow.
 
-Pada versi 0.1.0, orkestrasi dilakukan
-melalui prosedur dan instruksi AI.
+Responsibilities:
 
-Orkestrasi otomatis belum diimplementasikan.
+1. Resolve the active project context.
+2. Classify the requested task.
+3. Identify applicable governance constraints.
+4. Select the appropriate workflow and skills.
+5. Determine required input artifacts.
+6. Evaluate task dependencies.
+7. Coordinate logical agent responsibilities.
+8. Route generated artifacts to verification.
+9. Report outcomes and unresolved conditions.
 
-### 4.3 Governance Layer
+The orchestrator must not bypass approval gates to complete downstream tasks.
 
-Mengatur:
-- Kewenangan AI.
-- Persetujuan manusia.
-- Keamanan.
-- Batas perubahan.
-- Manajemen risiko.
-- Audit keputusan.
+At the current development stage, orchestration is a procedural contract executed through a compatible AI assistant.
 
-Spesifikasi: core/governance.md
+### 3.4 Governance Layer
 
-### 4.4 Context Management
+The Governance Layer defines authority, approval, and change-control boundaries.
 
-Mengelola:
-- Informasi proyek.
-- Kebutuhan.
-- Keputusan.
-- Riwayat perubahan.
-- Tugas aktif.
-- Masalah yang belum terselesaikan.
+It determines whether a requested operation may proceed and whether additional authorization is required.
 
-Konteks penting harus tersimpan dalam
-dokumen proyek, bukan hanya percakapan AI.
+Its responsibilities include:
 
-### 4.5 Agent & Skill Layer
+- Operation classification.
+- Approval enforcement.
+- Requirements baseline protection.
+- Controlled change assessment.
+- Security and confidentiality constraints.
+- Decision accountability.
 
-Agents menentukan tanggung jawab pekerjaan.
+The authoritative governance specification is maintained in:
 
-Skills menentukan prosedur khusus
-untuk menyelesaikan pekerjaan tersebut.
+`core/governance.md`
 
-Contoh agents:
-- Research Agent.
-- System Analyst.
-- Requirements Engineer.
-- System Architect.
-- Development Engineer.
-- Quality Assurance Engineer.
+### 3.5 Workflow Layer
 
-Agent merupakan definisi peran logis,
-bukan jaminan adanya proses AI terpisah.
+The Workflow Layer defines engineering phases and their dependencies.
 
-### 4.6 Workflow Engine
+Each phase must declare:
 
-Mengatur urutan pekerjaan dan
-ketergantungan antar tahapan.
+- Objective.
+- Required inputs.
+- Entry conditions.
+- Execution procedure.
+- Expected outputs.
+- Verification requirements.
+- Exit conditions.
+- Required approval.
 
-Spesifikasi: core/workflow.md
+Workflow execution may be iterative, but dependency and approval requirements remain enforceable.
 
-### 4.7 Verification Engine
+The authoritative workflow specification is maintained in:
 
-Menentukan apakah pekerjaan sudah
-memenuhi kriteria penerimaan.
+`core/workflow.md`
 
-Spesifikasi: core/verification.md
+### 3.6 Execution Layer
 
-## 5. Project Lifecycle
+The Execution Layer consists of agents, skills, and templates.
 
-PREZEKC AI menggunakan sembilan fase utama.
+These components have distinct responsibilities.
 
-| Fase | Nama | Hasil |
+**Agents** define engineering roles and accountability boundaries.
+
+**Skills** define reusable task procedures, inputs, outputs, and failure handling.
+
+**Templates** define the expected structure of controlled engineering deliverables.
+
+An agent may invoke multiple skills during a task.
+
+Multiple logical agent roles may be performed sequentially by a single AI assistant.
+
+The framework must not assume independent multi-agent execution unless the underlying platform explicitly supports it.
+
+### 3.7 Artifact Layer
+
+The Artifact Layer contains the engineering outputs produced during the project lifecycle.
+
+Artifacts may include:
+
+- Existing System Analysis.
+- Comparative Study.
+- Requirement Analysis.
+- Product Requirements Document.
+- Software Requirements Specification.
+- Requirement Traceability Matrix.
+- System Design Specification.
+- Source Code.
+- Test Cases.
+- Verification Reports.
+- Deployment Records.
+
+Controlled artifacts must preserve identifiable versions and lifecycle status.
+
+### 3.8 Verification Layer
+
+The Verification Layer determines whether deliverables satisfy applicable requirements and acceptance criteria.
+
+It validates:
+
+- Document completeness and consistency.
+- Research evidence integrity.
+- Requirement traceability.
+- Specification testability.
+- Design conformance.
+- Implementation behavior.
+- Platform-specific compatibility.
+- Test execution results.
+- Release readiness.
+
+Verification does not establish human approval.
+
+The authoritative verification specification is maintained in:
+
+`core/verification.md`
+
+---
+
+## 4. Engineering Lifecycle
+
+PREZEKC AI defines nine standard engineering phases.
+
+| ID | Phase | Primary Output |
 |---|---|---|
-| 01 | Existing System Analysis | Analisis Sistem Berjalan |
-| 02 | Comparative Study | Studi Komparasi |
-| 03 | Requirement Analysis | Analisis Kebutuhan |
-| 04 | Product Requirements | PRD |
-| 05 | Software Requirements | SRS |
-| 06 | System Design | Dokumen Perancangan |
-| 07 | Implementation | Sistem atau aplikasi |
-| 08 | Testing & Verification | Laporan Pengujian |
-| 09 | Deployment & Maintenance | Rilis dan dokumentasi |
+| `P01` | Existing System Analysis | System Analysis Report |
+| `P02` | Comparative Study | Comparative Study Report |
+| `P03` | Requirement Analysis | Requirement Analysis Document |
+| `P04` | Product Requirements | PRD |
+| `P05` | Software Requirements | SRS and RTM |
+| `P06` | System Design | System Design Specification |
+| `P07` | Implementation | Source Code and Build Artifacts |
+| `P08` | Testing and Verification | Verification Report |
+| `P09` | Deployment and Maintenance | Release and Maintenance Records |
 
-Setiap fase memiliki:
-- Input.
-- Aktivitas.
-- Output.
-- Kriteria penerimaan.
-- Status verifikasi.
+### 4.1 Phase Dependencies
 
-Fase dapat disesuaikan dengan jenis proyek,
-tetapi fase yang dilewati harus disertai alasan.
+For new software projects, the default dependency chain is:
 
-## 6. Standar Enam Dokumen Utama
+```text
+P01 -> P02 -> P03 -> P04 -> P05 -> P06 -> P07 -> P08 -> P09
+                        |     |     |                 |
+                        v     v     v                 v
+                    APPROVE APPROVE APPROVE        RELEASE
+                      PRD    SRS   DESIGN         APPROVAL
+```
 
-### 6.1 Analisis Sistem Berjalan
+Project-specific workflows may adapt the sequence when justified.
 
-Minimal berisi:
-- Gambaran organisasi atau proses.
-- Aktor yang terlibat.
-- Alur proses saat ini.
-- Teknologi yang digunakan.
-- Masalah dan kendala.
-- Penyebab dan dampak masalah.
-- Bukti dan batasan temuan.
+An analysis-only project may terminate before implementation.
 
-### 6.2 Studi Komparasi
+A maintenance project may begin with existing approved requirements and proceed through impact analysis, controlled modification, and regression verification.
 
-Minimal berisi:
-- Sistem atau solusi pembanding.
-- Sumber referensi.
-- Fitur dan karakteristik.
-- Kelebihan.
-- Kekurangan.
-- Relevansi terhadap proyek.
-- Peluang pengembangan.
+Omitted phases must be documented as not applicable rather than silently skipped.
 
-### 6.3 Analisis Kebutuhan
+### 4.2 Lifecycle Invariants
 
-Minimal berisi:
-- Stakeholder.
-- Kebutuhan pengguna.
-- Kebutuhan bisnis.
-- Kebutuhan data.
-- Prioritas kebutuhan.
-- Batasan dan asumsi.
-- Risiko yang teridentifikasi.
+The following invariants apply to software projects:
 
-### 6.4 Product Requirements Document (PRD)
+1. Product requirements must have identifiable origins.
+2. Final SRS baselines require an approved PRD.
+3. Final system design must conform to the approved SRS.
+4. Implementation must preserve approved requirement intent.
+5. Material changes require impact analysis.
+6. Verification claims require corresponding evidence.
+7. Production deployment requires authorization.
 
-Minimal berisi:
-- Ringkasan produk.
-- Latar belakang masalah.
-- Tujuan produk.
-- Target pengguna.
-- Ruang lingkup.
-- Fitur utama.
-- User stories.
-- Prioritas.
-- Indikator keberhasilan.
-- Acceptance criteria tingkat produk.
-
-### 6.5 Software Requirements Specification (SRS)
-
-Minimal berisi:
-- Pendahuluan dan ruang lingkup.
-- Deskripsi umum sistem.
-- Kebutuhan fungsional.
-- Kebutuhan nonfungsional.
-- Aktor dan hak akses.
-- Aturan bisnis.
-- Kebutuhan data.
-- Integrasi eksternal.
-- Batasan sistem.
-- Acceptance criteria yang dapat diuji.
-
-### 6.6 Dokumen Perancangan
-
-Minimal berisi elemen yang relevan:
-- Arsitektur sistem.
-- Use Case Diagram.
-- Activity Diagram.
-- Sequence Diagram.
-- Entity Relationship Diagram.
-- Desain database.
-- Rancangan API.
-- UI/UX.
-- Rancangan keamanan.
-- Keputusan teknologi.
-
-Diagram yang tidak relevan dengan
-jenis proyek dapat dikecualikan
-dengan alasan yang didokumentasikan.
-
-## 7. PRD-to-SRS Transformation
-
-PRD merupakan sumber kebutuhan tingkat produk.
-
-SRS menjelaskan perilaku sistem secara
-lebih rinci dan dapat diuji.
-
-### Prosedur
-
-1. Periksa status persetujuan PRD.
-2. Identifikasi setiap kebutuhan PRD.
-3. Berikan ID unik pada kebutuhan.
-4. Uraikan kebutuhan menjadi spesifikasi sistem.
-5. Identifikasi aturan bisnis dan validasi.
-6. Tetapkan kebutuhan nonfungsional.
-7. Definisikan acceptance criteria.
-8. Bangun Requirement Traceability Matrix (RTM).
-9. Periksa kelengkapan dan konsistensi.
-10. Ajukan SRS untuk persetujuan manusia.
-
-### Contoh Keterlacakan
-
-PRD-FR-001
-  -> SRS-FR-001.1
-  -> DESIGN-001
-  -> TEST-001
-
-Setiap SRS harus memiliki sumber PRD
-atau justifikasi kebutuhan yang disetujui.
-
-Kebutuhan baru yang ditemukan ketika
-menyusun SRS harus diajukan sebagai
-perubahan PRD apabila mengubah cakupan produk.
-
-## 8. Technology-Agnostic Development
-
-Framework tidak memaksakan satu
-teknologi tertentu.
-
-Pemilihan teknologi harus berdasarkan:
-- Kebutuhan pengguna.
-- Target platform.
-- Kompleksitas aplikasi.
-- Kompetensi tim.
-- Biaya operasional.
-- Keamanan.
-- Performa.
-- Pemeliharaan.
-- Kemudahan deployment.
-
-### 8.1 Web
-
-Dapat menggunakan teknologi frontend,
-backend, database, dan API yang sesuai.
-
-### 8.2 Android
-
-Dapat menggunakan pengembangan native
-atau cross-platform.
-
-### 8.3 iOS
-
-Dapat menggunakan pengembangan native
-atau cross-platform.
-
-### 8.4 Cross-Platform
-
-Dapat menggunakan shared codebase
-jika memenuhi kebutuhan kedua platform.
-
-Kompilasi, pengujian, dan distribusi
-Android serta iOS harus diverifikasi
-secara terpisah.
-
-## 9. Human Approval Gates
-
-Persetujuan manusia wajib untuk:
-- Penetapan ruang lingkup.
-- Penerimaan PRD.
-- Penerimaan SRS.
-- Persetujuan desain utama.
-- Perubahan kebutuhan signifikan.
-- Deployment produksi.
-- Operasi yang merusak data.
-
-Persetujuan harus terdokumentasi.
-
-## 10. Change Management
-
-Setiap perubahan signifikan dicatat
-dengan informasi:
-- ID perubahan.
-- Alasan.
-- Dokumen atau komponen terdampak.
-- Risiko.
-- Keputusan.
-- Status verifikasi.
-
-Jika PRD berubah, evaluasi dampak pada:
-- SRS.
-- Dokumen perancangan.
-- Implementasi.
-- Pengujian.
-- Dokumentasi pengguna.
-
-## 11. Verification
-
-Status hasil pekerjaan:
-
-- DRAFT: Masih dalam penyusunan.
-- IN_REVIEW: Sedang diperiksa.
-- CHANGES_REQUESTED: Memerlukan revisi.
-- APPROVED: Disetujui manusia.
-- VERIFIED: Lulus pemeriksaan yang relevan.
-- BLOCKED: Tidak dapat dilanjutkan.
-
-APPROVED dan VERIFIED memiliki arti berbeda.
-
-APPROVED menandakan persetujuan manusia.
-VERIFIED menandakan hasil pemeriksaan
-berdasarkan kriteria yang ditentukan.
-
-Keduanya dapat diperlukan sebelum
-melanjutkan fase tertentu.
-
-## 12. Keamanan dan Privasi
-
-PREZEKC AI harus:
-- Melindungi informasi rahasia.
-- Menghindari paparan kredensial.
-- Membatasi akses berdasarkan kebutuhan.
-- Meminimalkan data pribadi.
-- Tidak mempublikasikan data sensitif.
-- Meminta persetujuan untuk operasi berisiko.
-- Mencatat risiko keamanan yang relevan.
-
-Untuk sistem yang menangani informasi sensitif,
-terapkan pemeriksaan keamanan tambahan.
-
-## 13. Status Implementasi
-
-Versi 0.1.0 berfokus pada:
-- Definisi arsitektur framework.
-- Governance.
-- Workflow.
-- Verification.
-- Aturan dasar AI.
-
-Kemampuan berikut masih direncanakan:
-- Skills operasional.
-- Template dokumen lengkap.
-- Validasi otomatis PRD-to-SRS.
-- Generator proyek.
-- Integrasi development tools.
-- Pengujian framework otomatis.
-
-Dokumen ini merupakan spesifikasi rancangan,
-bukan bukti seluruh kemampuan sudah berjalan.
-
-## 14. Referensi Internal
-
-- README.md
-- AGENTS.md
-- core/governance.md
-- core/workflow.md
-- core/verification.md
+Prototypes may be created before final baseline approval when explicitly classified as exploratory work.
 
 ---
 
-PREZEKC AI Framework
-Version 0.1.0
+## 5. Requirements Engineering Architecture
+
+Requirements engineering is the principal capability of PREZEKC AI.
+
+The framework separates product intent from system behavior and preserves traceability between them.
+
+### 5.1 Requirements Model
+
+```text
+STAKEHOLDER NEED
+        |
+        v
+PRODUCT REQUIREMENT
+        |
+        v
+SYSTEM REQUIREMENT
+        |
+        v
+DESIGN ELEMENT
+        |
+        v
+IMPLEMENTATION COMPONENT
+        |
+        v
+TEST CASE
+        |
+        v
+VERIFICATION EVIDENCE
+```
+
+Each transition represents a defined engineering relationship.
+
+A downstream artifact must not introduce unsupported product behavior.
+
+### 5.2 Product Requirements Document
+
+The PRD defines:
+
+- Product purpose and problem statement.
+- Stakeholder and user objectives.
+- Scope and exclusions.
+- Product capabilities.
+- Priorities and dependencies.
+- Acceptance outcomes.
+- Success metrics.
+- Constraints and assumptions.
+
+The approved PRD establishes the product requirements baseline.
+
+### 5.3 Software Requirements Specification
+
+The SRS defines:
+
+- Functional system behavior.
+- Non-functional requirements.
+- Actors and authorization boundaries.
+- Inputs, outputs, and validation.
+- Business rules.
+- Data requirements.
+- External interfaces.
+- Failure handling.
+- Testable acceptance criteria.
+
+The SRS must reference the approved PRD baseline from which it was derived.
+
+### 5.4 PRD-to-SRS Transformation
+
+The transformation process consists of:
+
+```text
+APPROVED PRD
+     |
+     v
+REQUIREMENT EXTRACTION
+     |
+     v
+REQUIREMENT CLASSIFICATION
+     |
+     v
+SYSTEM REQUIREMENT DECOMPOSITION
+     |
+     v
+ACCEPTANCE CRITERIA DEFINITION
+     |
+     v
+TRACEABILITY MAPPING
+     |
+     v
+CONSISTENCY VERIFICATION
+     |
+     v
+SRS REVIEW
+     |
+     v
+APPROVED SRS
+```
+
+The transformation must preserve the semantic intent of the parent PRD requirements.
+
+Additional technical details may be derived where necessary to specify system behavior.
+
+New product capabilities must be submitted through change control rather than silently added to the SRS.
+
+### 5.5 Requirement Identifiers
+
+PREZEKC AI defines the following identifier convention:
+
+| Prefix | Artifact |
+|---|---|
+| `PRD-FR` | Product functional requirement |
+| `PRD-NFR` | Product-level non-functional requirement |
+| `SRS-FR` | System functional requirement |
+| `SRS-NFR` | System non-functional requirement |
+| `DES` | Design element |
+| `TC` | Test case |
+| `CHG` | Change request |
+| `VER` | Verification record |
+
+Example relationship:
+
+```text
+PRD-FR-001
+    |
+    +-- SRS-FR-001.1
+    |       |
+    |       +-- DES-001
+    |               |
+    |               +-- TC-001
+    |
+    +-- SRS-FR-001.2
+            |
+            +-- DES-002
+                    |
+                    +-- TC-002
+```
+
+Identifiers must remain stable across approved document revisions.
+
+A requirement may reference multiple originating requirements or design elements.
+
+Traceability relationships must be recorded explicitly rather than inferred from identifier similarity.
+
+### 5.6 Traceability Matrix
+
+The Requirement Traceability Matrix (RTM) records dependencies between approved requirements and downstream artifacts.
+
+Minimum logical fields:
+
+| Field | Description |
+|---|---|
+| Requirement ID | Unique identifier of the tracked requirement. |
+| Source ID | Originating requirement or approved justification. |
+| Baseline Version | Applicable approved document version. |
+| Design Reference | Corresponding design element. |
+| Implementation Reference | Associated implementation component. |
+| Test Reference | Verification or test case reference. |
+| Coverage Status | Current traceability coverage. |
+
+A missing relationship must be reported as a traceability finding.
+
+The framework must not invent references to satisfy coverage requirements.
+
+---
+
+## 6. Agent Architecture
+
+Agent definitions establish responsibilities without requiring independent AI processes.
+
+| Agent | Responsibility | Primary Artifacts |
+|---|---|---|
+| Research Analyst | Evaluate existing solutions and supporting evidence. | Comparative Study |
+| System Analyst | Analyze processes, stakeholders, and operational problems. | System Analysis, Requirements |
+| Requirements Engineer | Define and decompose product and system requirements. | PRD, SRS, RTM |
+| System Architect | Translate approved specifications into technical designs. | Architecture, UML, ERD, API Design |
+| Development Engineer | Implement approved system behavior. | Source Code, Builds |
+| Verification Engineer | Evaluate conformance and quality. | Test Cases, Verification Reports |
+
+### 6.1 Agent Contract
+
+Every agent definition must establish:
+
+```yaml
+agent:
+  id: requirements-engineer
+  role: "Requirements Engineer"
+  objective: "Produce and validate requirements specifications"
+
+  required_inputs:
+    - "Approved requirements or analysis artifacts"
+
+  outputs:
+    - "Controlled requirements documents"
+
+  constraints:
+    - "Preserve approved scope"
+    - "Maintain traceability"
+
+  verification:
+    - "Check requirement consistency"
+    - "Check document completeness"
+
+  escalation:
+    - "Unapproved scope change"
+    - "Missing critical requirements"
+```
+
+This structure defines a logical interface.
+
+An executable agent runtime is not implied.
+
+### 6.2 Responsibility Boundaries
+
+Agents must not approve their own work on behalf of the project owner.
+
+The Requirements Engineer may identify missing product capabilities but cannot independently authorize scope expansion.
+
+The Development Engineer may implement approved behavior but cannot redefine requirements to simplify implementation.
+
+The Verification Engineer must report observed failures rather than adjusting acceptance criteria to produce a passing result.
+
+---
+
+## 7. Skill Architecture
+
+Skills are reusable execution procedures associated with defined engineering activities.
+
+A skill must declare:
+
+- Identifier and purpose.
+- Required inputs.
+- Preconditions.
+- Execution procedure.
+- Expected outputs.
+- Verification criteria.
+- Failure and escalation conditions.
+
+Example skill definition:
+
+```yaml
+skill:
+  id: prd-to-srs
+  version: "0.1.0"
+
+  purpose: "Derive testable SRS requirements from an approved PRD"
+
+  preconditions:
+    - "PRD baseline is approved"
+    - "Requirement identifiers are available"
+
+  inputs:
+    - "Approved PRD"
+    - "Business rules"
+    - "Project constraints"
+
+  outputs:
+    - "SRS draft"
+    - "Requirement Traceability Matrix"
+    - "Unresolved requirement register"
+
+  failure_conditions:
+    - "Missing PRD approval"
+    - "Unresolvable requirement contradiction"
+    - "Unsupported scope expansion"
+```
+
+Skill execution must comply with global governance and the active workflow.
+
+Project-specific skills may extend the framework without modifying core operating rules.
+
+---
+
+## 8. Artifact Management
+
+Controlled artifacts require explicit identity and version information.
+
+### 8.1 Artifact Metadata
+
+Recommended metadata:
+
+```yaml
+artifact:
+  id: SRS
+  title: "Software Requirements Specification"
+  version: "1.0"
+  status: DRAFT
+
+  source_baseline:
+    document: PRD
+    version: "1.0"
+
+  owner: "Project Owner"
+  approved_by: null
+
+  verification_status: NOT_RUN
+```
+
+The example describes an artifact contract, not an existing automated parser.
+
+### 8.2 Artifact States
+
+Document approval states:
+
+- `DRAFT`
+- `IN_REVIEW`
+- `CHANGES_REQUESTED`
+- `APPROVED`
+- `SUPERSEDED`
+- `REJECTED`
+
+Verification states:
+
+- `PASS`
+- `PARTIAL`
+- `FAIL`
+- `BLOCKED`
+- `NOT_RUN`
+- `N/A`
+
+Approval and verification states must be managed independently.
+
+### 8.3 Baseline Integrity
+
+Approved document versions must remain identifiable after revision.
+
+Changes affecting approved requirements must trigger downstream impact analysis.
+
+Historical requirement relationships must not be removed solely to simplify current documentation.
+
+---
+
+## 9. Platform Architecture
+
+PREZEKC AI supports platform-specific engineering workflows while preserving a common requirements and governance model.
+
+### 9.1 Web Applications
+
+Web workflows may include:
+
+- Frontend architecture.
+- Backend services.
+- Database design.
+- API contracts.
+- Authentication and authorization.
+- Responsive UI.
+- Browser compatibility.
+- Deployment and operational verification.
+
+### 9.2 Android Applications
+
+Android workflows may include:
+
+- Native or cross-platform architecture.
+- SDK and dependency configuration.
+- Device permissions.
+- Application lifecycle handling.
+- API and local storage integration.
+- Build generation.
+- Emulator and device verification.
+
+### 9.3 iOS Applications
+
+iOS workflows may include:
+
+- Native or cross-platform architecture.
+- Xcode and SDK configuration.
+- Device permissions.
+- Application lifecycle handling.
+- API and local storage integration.
+- Build and signing verification.
+- Simulator and device verification.
+
+### 9.4 Cross-Platform Applications
+
+Cross-platform development may use a shared codebase when compatible with approved requirements.
+
+Technology selection must consider:
+
+- Platform-specific functionality.
+- Native integration requirements.
+- Performance constraints.
+- Team capability.
+- Maintenance cost.
+- Build and distribution requirements.
+
+Android and iOS verification must remain independent.
+
+Successful execution on one platform does not establish compatibility with another.
+
+---
+
+## 10. Verification Architecture
+
+Verification is performed against explicit criteria and recorded evidence.
+
+### 10.1 Verification Gates
+
+| Gate | Subject | Minimum Requirement |
+|---|---|---|
+| `VG-01` | System Analysis | Evidence integrity and process completeness |
+| `VG-02` | Comparative Study | Source validity and comparison consistency |
+| `VG-03` | Requirement Analysis | Stakeholder and requirement coverage |
+| `VG-04` | PRD | Scope consistency and acceptance criteria |
+| `VG-05` | SRS | Testability and PRD traceability |
+| `VG-06` | System Design | Conformance to approved SRS |
+| `VG-07` | Implementation | Functional and implementation verification |
+| `VG-08` | Release | Platform checks and release authorization |
+
+A verification gate evaluates an artifact against its criteria.
+
+The associated workflow exit condition may additionally require human approval.
+
+### 10.2 Evidence Rules
+
+Agents must distinguish between:
+
+- Document inspection.
+- Static analysis.
+- Build execution.
+- Automated test execution.
+- Runtime observation.
+- Human acceptance.
+
+A verification claim must identify the method actually used.
+
+Passing static analysis does not demonstrate runtime correctness.
+
+Passing a build does not demonstrate that all acceptance criteria are satisfied.
+
+### 10.3 Failure Handling
+
+When mandatory verification fails:
+
+1. Record the failed criterion.
+2. Identify the affected artifact.
+3. Determine the failure severity.
+4. Identify the originating requirement where possible.
+5. Define the required correction.
+6. Reverify affected behavior.
+7. Preserve the resulting evidence.
+
+Unresolved mandatory failures must not be reported as successful completion.
+
+---
+
+## 11. Change Propagation
+
+Change management maintains consistency between approved requirements and downstream engineering artifacts.
+
+```text
+CHANGE REQUEST
+      |
+      v
+IMPACT ANALYSIS
+      |
+      v
+OWNER APPROVAL
+      |
+      v
+BASELINE REVISION
+      |
+      v
+DEPENDENCY UPDATE
+      |
+      v
+REVERIFICATION
+      |
+      v
+CHANGE RECORD
+```
+
+Change impact assessment must consider:
+
+- Product requirements.
+- Software requirements.
+- System architecture.
+- Data contracts.
+- User interfaces.
+- Implementation components.
+- Test coverage.
+- Deployment compatibility.
+
+Only affected artifacts should be modified unless a broader change is explicitly approved.
+
+---
+
+## 12. Framework Extensibility
+
+PREZEKC AI supports extensions through project-specific agents, skills, workflows, rules, and templates.
+
+Extensions must:
+
+1. Preserve core governance constraints.
+2. Declare their applicable project scope.
+3. Define required inputs and outputs.
+4. Identify dependencies.
+5. Specify verification criteria.
+6. Avoid conflicting requirement identifier conventions.
+7. Document compatibility assumptions.
+
+Extensions may specialize the engineering process but must not silently override approved requirements or human approval gates.
+
+### 12.1 Project Profiles
+
+Project profiles determine which capabilities are applicable.
+
+Example classifications:
+
+- `SOFTWARE_DEVELOPMENT`
+- `SYSTEM_ANALYSIS`
+- `ACADEMIC_RESEARCH`
+- `DOCUMENTATION`
+- `MAINTENANCE`
+
+A documentation-only project does not require application deployment.
+
+A software project targeting Android and iOS must include platform-specific implementation and verification requirements.
+
+---
+
+## 13. Repository Organization
+
+PREZEKC AI separates governance, execution procedures, artifact templates, and project documentation.
+
+```text
+prezekc-ai-framework/
+|
+|-- README.md
+|-- AGENTS.md
+|-- FRAMEWORK.md
+|
+|-- core/
+|   |-- governance.md
+|   |-- workflow.md
+|   `-- verification.md
+|
+|-- agents/
+|-- rules/
+|-- skills/
+|-- templates/
+|-- workflows/
+`-- docs/
+```
+
+Component ownership:
+
+| Location | Responsibility |
+|---|---|
+| `AGENTS.md` | Global agent operating contract. |
+| `FRAMEWORK.md` | Logical architecture and component interfaces. |
+| `core/` | Governance, workflow, and verification protocols. |
+| `agents/` | Engineering role definitions. |
+| `rules/` | Specialized operating constraints. |
+| `skills/` | Reusable task procedures. |
+| `templates/` | Controlled engineering document structures. |
+| `workflows/` | Project-specific execution configurations. |
+| `docs/` | Supporting architecture and usage documentation. |
+
+Repository structure may evolve as executable tooling is introduced.
+
+Documentation must accurately distinguish implemented components from planned capabilities.
+
+---
+
+## 14. Implementation Boundaries
+
+The initial PREZEKC AI release establishes the framework specification and operating model.
+
+### 14.1 Defined in v0.1.0
+
+- Framework architecture.
+- Governance boundaries.
+- Engineering lifecycle.
+- Requirements transformation contract.
+- Agent responsibility model.
+- Verification principles.
+- Project artifact conventions.
+
+### 14.2 Planned Capabilities
+
+- Executable workflow orchestration.
+- Reusable operational agent definitions.
+- PRD and SRS generation skills.
+- Automated requirement extraction.
+- PRD-to-SRS transformation tooling.
+- Requirement traceability validation.
+- System design generation workflows.
+- Web and mobile development integrations.
+- Automated quality gates.
+- Multi-project framework evaluation.
+
+Planned capabilities must not be represented as operational until implemented and verified.
+
+---
+
+## 15. Architectural Conformance
+
+An implementation conforms to the PREZEKC AI architecture when it:
+
+1. Respects the authority and approval model.
+2. Uses defined workflow dependencies.
+3. Preserves approved requirements baselines.
+4. Maintains requirement traceability.
+5. Applies relevant verification gates.
+6. Records material changes and decisions.
+7. Reports execution outcomes accurately.
+8. Enforces platform-specific requirements when applicable.
+
+Conformance must be evaluated through actual artifacts and recorded verification evidence.
+
+The presence of framework documentation alone does not establish operational conformance.
+
+---
+
+## Related Specifications
+
+- [Agent Operating Contract](AGENTS.md)
+- [Governance Protocol](core/governance.md)
+- [Engineering Workflow Protocol](core/workflow.md)
+- [Verification and Quality Protocol](core/verification.md)
+
+---
+
+**PREZEKC AI Framework — Architecture Specification v0.1.0**
