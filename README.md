@@ -1,273 +1,297 @@
+
 <div align="center">
 
-# PREZEKC AI Framework
+# PREZEKC AI
 
-**Requirements-Driven AI-Assisted Software Engineering**
+### Requirements-Driven AI Engineering Framework
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue?style=flat-square)
-![Release](https://img.shields.io/badge/release-candidate-orange?style=flat-square)
-![Python](https://img.shields.io/badge/python-3.12%2B-3776AB?style=flat-square&logo=python&logoColor=white)
-![Platforms](https://img.shields.io/badge/platform-web%20%7C%20android%20%7C%20ios-3DDC84?style=flat-square)
-[![CI](https://img.shields.io/github/actions/workflow/status/Hasanah977/prezekc-ai-framework/framework-validation.yml?style=flat-square&label=CI&logo=githubactions&logoColor=white)](https://github.com/Hasanah977/prezekc-ai-framework/actions)
-![Stars](https://img.shields.io/github/stars/Hasanah977/prezekc-ai-framework?style=flat-square&logo=github)
-![Last Commit](https://img.shields.io/github/last-commit/Hasanah977/prezekc-ai-framework?style=flat-square)
+A structured engineering framework for building software with AI assistance, from system analysis and requirements definition to architecture, implementation, verification, and delivery.
 
-A repository-based engineering framework for managing software development from system analysis<br>
-through requirements specification, architecture, implementation, verification, and delivery.
+**v0.1.0 Release Candidate**
 
-[📖 Overview](#overview) · [🧭 Lifecycle](#engineering-lifecycle) · [🛠️ Validation Tools](#validation-tools) · [🚀 Getting Started](#getting-started) · [🗺️ Roadmap](#development-roadmap)
+[![Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
+[![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Release](https://img.shields.io/badge/Release-v0.1.0_RC-orange.svg)](CHANGELOG.md)
+
+[Getting Started](#installation) · [How It Works](#how-it-works) · [Documentation](#documentation) · [Report an Issue](https://github.com/Hasanah977/prezekc-ai-framework/issues)
 
 </div>
 
 ---
 
-PREZEKC AI provides engineering contracts, reusable procedures, document templates, controlled workflows, and executable validation utilities.
+## Why PREZEKC?
 
-The framework is technology-agnostic and operates with compatible AI assistants or engineering teams. It does not include an autonomous agent runtime.
+AI coding assistants can generate software quickly, but code generation alone does not establish that a system satisfies its requirements.
 
-## Contents
+Product scope may be unclear, requirements may change without authorization, implementation decisions may diverge from specifications, and successful code generation may be mistaken for verified delivery.
 
-- [Overview](#overview)
-- [Engineering Lifecycle](#engineering-lifecycle)
-- [Framework Architecture](#framework-architecture)
-- [Engineering Roles](#engineering-roles)
-- [Skills and Workflows](#skills-and-workflows)
-- [Requirements Engineering](#requirements-engineering)
-- [Validation Tools](#validation-tools)
-- [Getting Started](#getting-started)
-- [Repository Structure](#repository-structure)
-- [Verification and Release Status](#verification-and-release-status)
-- [Limitations](#limitations)
-- [Development Roadmap](#development-roadmap)
-- [Documentation](#documentation)
-- [License](#license)
+**PREZEKC AI addresses these problems by introducing a controlled engineering process around AI-assisted development.**
 
----
+The framework establishes:
 
-## Overview
+- **Analysis before implementation.** Understand the existing process, stakeholders, and underlying problems before defining features.
+- **Requirements as the source of truth.** Derive system behavior from documented product requirements rather than unsupported assumptions.
+- **Traceability across artifacts.** Maintain explicit relationships between PRD, SRS, system design, implementation, and verification.
+- **Human-controlled decisions.** Keep approval of scope, requirements, architecture, and production releases with authorized project owners.
+- **Evidence-based verification.** Support completion claims with recorded checks, test results, and identifiable evidence.
+- **Technology-independent workflows.** Apply consistent engineering procedures across web, backend, Android, iOS, and cross-platform projects.
 
-AI-assisted software development requires more than generating source code. Requirements must originate from identifiable needs, technical decisions must remain consistent with approved specifications, and deliverables must be supported by verification evidence.
+PREZEKC is designed for software engineers, system analysts, researchers, students, and development teams using AI assistants as part of their engineering workflow.
 
-PREZEKC AI establishes a controlled operating model based on six principles:
+## Features
 
-| Principle | Requirement |
-|---|---|
-| Evidence-Based Analysis | Findings must be supported by identifiable sources or observations. |
-| Requirements-Driven Development | Product capabilities must originate from documented needs or approved decisions. |
-| Human Authority | Project owners retain control over scope, baselines, architecture approval, and releases. |
-| Requirement Traceability | Dependencies between requirements and engineering artifacts must be maintained. |
-| Controlled Change | Changes to approved baselines require impact assessment and authorization. |
-| Verified Delivery | Completion claims must be supported by recorded verification results. |
+### Engineering Lifecycle
 
-The framework separates engineering procedures from project-specific implementation decisions.
+PREZEKC defines nine connected engineering phases:
 
-## Engineering Lifecycle
-
-PREZEKC AI defines nine engineering phases.
-
-| Phase | Activity | Primary Deliverable |
+| Phase | Activity | Deliverable |
 |---|---|---|
-| P01 | Existing System Analysis | Existing System Analysis Report |
+| P01 | System Analysis | Existing System Analysis Report |
 | P02 | Comparative Study | Comparative Study Report |
 | P03 | Requirement Analysis | Requirement Analysis Document |
-| P04 | Product Requirements | Product Requirements Document (PRD) |
-| P05 | Software Requirements | Software Requirements Specification (SRS) and RTM |
-| P06 | System Design | System Design Specification |
-| P07 | Implementation | Source code and build artifacts |
-| P08 | Verification | Test results and verification report |
-| P09 | Deployment and Maintenance | Release and operational records |
+| P04 | Product Requirements | Product Requirements Document |
+| P05 | Software Requirements | Software Requirements Specification and RTM |
+| P06 | System Design | Architecture and System Design Specification |
+| P07 | Implementation | Application source and implementation records |
+| P08 | Verification | Test evidence and verification report |
+| P09 | Deployment & Maintenance | Release and operational records |
 
-The principal artifact dependency is:
+Each phase defines its inputs, responsibilities, execution procedure, and completion conditions.
 
-```text
-Existing System Analysis
-          |
-          v
-Comparative Study
-          |
-          v
-Requirement Analysis
-          |
-          v
-         PRD
-          |
-     Owner Approval
-          |
-          v
-         SRS
-          |
-     Owner Approval
-          |
-          v
-    System Design
-          |
-     Design Approval
-          |
-          v
-   Implementation
-          |
-          v
-     Verification
-          |
-   Release Authorization
-          |
-          v
-Deployment and Maintenance
-```
+### Engineering Agents
 
-The sequence represents the controlled delivery model. Iteration and maintenance changes are permitted through the applicable change-control procedure.
-
-For existing projects, the required entry phase is determined by the available approved baselines and the scope of the requested change.
-
-See [Full Engineering Lifecycle](workflows/full-lifecycle.md).
-
-## Framework Architecture
-
-PREZEKC AI separates framework authority from execution procedures and verification.
-
-| Layer | Location | Responsibility |
-|---|---|---|
-| Operating Contract | `AGENTS.md` | Agent behavior, authority boundaries, and reporting |
-| Framework Specification | `FRAMEWORK.md` | Engineering model and framework principles |
-| Core Protocols | `core/` | Governance, lifecycle, and verification rules |
-| Engineering Roles | `agents/` | Responsibilities and handoff contracts |
-| Engineering Skills | `skills/` | Task-specific execution procedures |
-| Operating Rules | `rules/` | Shared engineering and documentation rules |
-| Document Templates | `templates/` | Standard artifact structures |
-| Delivery Workflows | `workflows/` | Lifecycle and platform-specific sequences |
-| Validation Utilities | `tools/` | Executable structural and requirements checks |
-| Automated Tests | `tests/` | Verification of validation utilities |
-| Examples | `examples/` | Test fixtures and engineering examples |
-
-Specifications define the required behavior. Python utilities implement only the checks explicitly supported by their code.
-
-The framework does not assume that an AI assistant can access external systems, execute commands, or deploy software unless those capabilities are available and authorized in its execution environment.
-
-See [Internal Architecture](docs/architecture.md).
-
-## Engineering Roles
-
-Six logical engineering roles are defined.
+Six engineering roles coordinate the framework's responsibilities.
 
 | Role | Responsibility |
 |---|---|
-| [Research Analyst](agents/research-analyst.md) | Comparative research and evidence evaluation |
-| [System Analyst](agents/system-analyst.md) | Current-state processes, stakeholders, and problem analysis |
-| [Requirements Engineer](agents/requirements-engineer.md) | Requirements analysis, PRD, SRS, and traceability |
-| [System Architect](agents/system-architect.md) | Architecture, system components, data, and interface design |
-| [Development Engineer](agents/development-engineer.md) | Implementation and developer-level verification |
-| [Verification Engineer](agents/verification-engineer.md) | Independent verification, defect reporting, and evidence assessment |
+| Research Analyst | Research and comparative evaluation |
+| System Analyst | Existing-system investigation and problem analysis |
+| Requirements Engineer | Requirements analysis, PRD, SRS, and traceability |
+| System Architect | Architecture, components, data models, and interfaces |
+| Development Engineer | Software implementation and developer-level verification |
+| Verification Engineer | Independent verification and evidence assessment |
 
-Roles are operating contracts rather than independently running processes.
+These are logical engineering roles. They do not imply six autonomous AI processes running independently.
 
-A compatible AI assistant may perform multiple roles sequentially, subject to the applicable governance rules.
+### Reusable Engineering Skills
 
-## Skills and Workflows
+PREZEKC includes ten task-specific procedures:
 
-### Engineering Skills
+- System Analysis and Comparative Study
+- Requirement Analysis
+- PRD Generation and PRD-to-SRS Engineering
+- System Design
+- Web Development
+- Mobile Development
+- Software Testing
+- Deployment
 
-The framework provides ten reusable skills.
+Each skill defines prerequisites, execution steps, deliverables, verification conditions, and failure handling.
 
-| Skill | Location | Primary Function |
-|---|---|---|
-| System Analysis | `skills/system-analysis/` | Existing-system investigation |
-| Comparative Study | `skills/comparative-study/` | Evidence-based solution comparison |
-| Requirement Analysis | `skills/requirement-analysis/` | Stakeholder needs and requirement candidates |
-| PRD Generation | `skills/prd-generation/` | Product requirements preparation |
-| PRD-to-SRS | `skills/prd-to-srs/` | Controlled software requirement decomposition |
-| System Design | `skills/system-design/` | Architecture and design specification |
-| Web Development | `skills/web-development/` | Web application implementation |
-| Mobile Development | `skills/mobile-development/` | Android, iOS, and cross-platform implementation |
-| Testing | `skills/testing/` | Test planning, execution, and reporting |
-| Deployment | `skills/deployment/` | Controlled release and deployment procedures |
+### Document Engineering
 
-Each skill contains a `SKILL.md` defining its activation conditions, inputs, procedure, deliverables, verification requirements, and failure handling.
+The framework provides controlled templates for:
 
-### Delivery Workflows
+- Existing System Analysis
+- Comparative Study
+- Requirement Analysis
+- Product Requirements Document (PRD)
+- Software Requirements Specification (SRS)
+- Requirement Traceability Matrix (RTM)
+- System Design Specification
 
-| Workflow | Document |
+The documentation process preserves requirement identifiers and supports review of changes across related artifacts.
+
+### Automated Validation
+
+Three Python utilities implement the executable validation layer.
+
+| Tool | Purpose |
 |---|---|
-| Full Engineering Lifecycle | [full-lifecycle.md](workflows/full-lifecycle.md) |
-| Web Application Delivery | [web-application.md](workflows/web-application.md) |
-| Mobile Application Delivery | [mobile-application.md](workflows/mobile-application.md) |
+| `validate_framework.py` | Verify repository structure, skill metadata, and local documentation references |
+| `extract_requirements.py` | Extract supported PRD, SRS, and RTM Markdown into structured JSON |
+| `validate_requirements.py` | Check requirement identifiers, baseline references, coverage, and traceability mappings |
 
-Workflows coordinate engineering activities. Skills define how individual activities are performed.
+The validation tools use the Python Standard Library. No additional Python packages are required for the documented checks.
 
-## Requirements Engineering
+## How It Works
 
-Requirements engineering is a central component of PREZEKC AI.
+PREZEKC combines engineering instructions with deterministic validation tools.
 
-### Product Requirements Document
-
-The PRD establishes product objectives, scope, target users, priorities, capabilities, and acceptance outcomes.
-
-A PRD must have an identifiable approval record before it becomes the authoritative source for final SRS generation.
-
-### Software Requirements Specification
-
-The SRS describes observable and testable system behavior derived from the approved PRD.
-
-Requirements may address functional behavior, quality attributes, data, interfaces, validation, authorization, and failure conditions.
-
-### Requirement Traceability Matrix
-
-The RTM preserves relationships between engineering artifacts.
+The operating model follows this sequence:
 
 ```text
-PRD-FR-001
-    |
-    +-- SRS-FR-001.1
-    |       |
-    |       +-- DES-001
-    |               |
-    |               +-- Implementation Reference
-    |               |
-    |               +-- TC-001
-    |
-    +-- SRS-FR-001.2
+Project Context
+      |
+      v
+System & Requirement Analysis
+      |
+      v
+Product Requirements (PRD)
+      |
+      | Human Approval
+      v
+Software Requirements (SRS)
+      |
+      | Human Approval
+      v
+System Design
+      |
+      | Design Review
+      v
+Implementation
+      |
+      v
+Verification
+      |
+      | Release Authorization
+      v
+Deployment & Maintenance
 ```
 
-Every mandatory PRD requirement must be accounted for during SRS decomposition.
+The AI assistant follows the applicable role and skill instructions. The project owner remains responsible for consequential approval decisions.
 
-Every SRS requirement must have an authorized origin.
+For requirements engineering, PREZEKC maintains a traceable relationship between product intent and system behavior.
 
-Missing downstream artifacts remain pending. Traceability references must not be fabricated to imply completed implementation or verification.
+**Example:**
 
-### Document Templates
+A product requirement establishes that authorized reporting personnel must be able to access consolidated records for a selected period.
 
-The repository includes templates for:
+```text
+PRD-FR-001  Consolidated record access
+    |
+    +-- SRS-FR-001.1  Reporting-period selection
+    |
+    +-- SRS-FR-001.2  Record retrieval
+    |
+    +-- SRS-FR-001.3  Access authorization
+```
 
-- Existing System Analysis.
-- Comparative Study.
-- Requirement Analysis.
-- PRD.
-- SRS.
-- Requirement Traceability Matrix.
-- System Design.
+The Requirement Traceability Matrix records these relationships and connects them to subsequent design and verification artifacts.
 
-Templates define structure. They do not independently establish requirement correctness, technical feasibility, or stakeholder approval.
+The Python validators examine the supported requirement mappings. They do not independently determine whether the underlying business requirement is correct.
 
-## Validation Tools
+## Installation
 
-PREZEKC AI includes three Python validation utilities.
+PREZEKC is distributed as a Git repository, not as a PyPI package.
 
-| Utility | Responsibility |
-|---|---|
-| `validate_framework.py` | Repository structure, skill metadata, and local Markdown references |
-| `extract_requirements.py` | Controlled extraction of PRD, SRS, and RTM Markdown into JSON |
-| `validate_requirements.py` | Requirements identifiers, baselines, coverage, and traceability mappings |
+Installation consists of obtaining the framework, validating its contents, and making its instructions available to the AI assistant or engineering team.
 
-These utilities use the Python Standard Library.
+### Requirements
 
-### Framework Validation
+- Git
+- Python 3.12 or later
+- A terminal or development environment
+- An AI assistant or engineering operator capable of reading repository instructions
+
+Additional tools such as Node.js, PHP, Go, Android SDK, or Xcode are only required when the target software project uses them.
+
+### 1. Clone PREZEKC
+
+```bash
+git clone https://github.com/Hasanah977/prezekc-ai-framework.git
+cd prezekc-ai-framework
+```
+
+For a specific published release, check out its Git tag once that release is available:
+
+```bash
+git fetch --tags
+git checkout v0.1.0
+```
+
+Until the tag is published, use the `main` branch for the release candidate.
+
+### 2. Verify the Installation
+
+Run the framework validator:
 
 ```bash
 python tools/validate_framework.py --strict
 ```
 
-The validator checks structural properties of the framework repository.
+Run the automated tests:
 
-### Requirements Extraction
+```bash
+python -m unittest discover -s tests -v
+```
+
+The checks should complete successfully before the framework is used as a validated local baseline.
+
+### 3. Connect PREZEKC to Your Project
+
+PREZEKC does not require a global installer or changes to your application dependencies.
+
+For a new or existing software project, keep the framework repository available alongside the target project.
+
+Example:
+
+```text
+workspace/
+    prezekc-ai-framework/
+    my-application/
+```
+
+Open the project in your development environment and provide the AI assistant with access to the framework instructions.
+
+The recommended reading order is:
+
+1. `AGENTS.md` — agent operating contract.
+2. `core/governance.md` — authority and change control.
+3. `core/workflow.md` — lifecycle requirements.
+4. The relevant file in `agents/`.
+5. The required `skills/<skill-name>/SKILL.md`.
+
+The framework can also be copied into a project as a self-contained reference directory. Preserve relative file paths so links between its specifications remain valid.
+
+**Note:** PREZEKC does not automatically register its skills in every AI assistant. How instructions are attached or loaded depends on the assistant or development environment being used.
+
+## Usage
+
+### Starting a New Project
+
+Start by providing the project objective and identifying the intended software platform.
+
+An example instruction to an AI assistant:
+
+```text
+Use PREZEKC AI Framework as the engineering procedure
+for this project.
+
+Read the framework's AGENTS.md and core protocols.
+
+Begin with System Analysis. Identify the current process,
+stakeholders, known problems, evidence, and information gaps.
+
+Do not introduce unapproved product requirements or
+proceed to implementation before the applicable
+requirements and design baselines are established.
+```
+
+The assistant should apply the relevant analysis skill, produce the required artifact, and report unresolved findings.
+
+Continue to the next phase when its prerequisites are satisfied.
+
+### Working with an Existing Project
+
+PREZEKC can be applied without rebuilding the project from the beginning.
+
+The operating procedure is:
+
+1. Inspect the current repository and project documentation.
+2. Identify existing approved requirements and design baselines.
+3. Determine the requested change and affected components.
+4. Apply the relevant engineering skill.
+5. Evaluate downstream impact.
+6. Verify the completed change.
+
+Existing code, design conventions, and user changes must be preserved unless modification is authorized.
+
+### Extracting PRD, SRS, and RTM
+
+The document extraction tool converts supported Markdown artifacts into JSON manifests for deterministic validation.
+
+Example using the included fixtures:
 
 ```bash
 python tools/extract_requirements.py \
@@ -277,11 +301,17 @@ python tools/extract_requirements.py \
   --output build/requirements
 ```
 
-The extractor reads the supported Markdown structure and writes JSON manifests.
+The output contains:
 
-The output directory must not contain existing manifests with the same names. Use a new directory for subsequent extraction runs.
+```text
+build/requirements/prd.json
+build/requirements/srs.json
+build/requirements/rtm.json
+```
 
-### Requirements Validation
+The extractor does not overwrite existing manifests. Choose a new output directory for subsequent runs.
+
+Validate the generated manifests:
 
 ```bash
 python tools/validate_requirements.py \
@@ -291,235 +321,122 @@ python tools/validate_requirements.py \
   --strict
 ```
 
-The validator checks supported requirements relationships, identifier consistency, baseline references, and recorded coverage.
-
-It does not independently determine whether a stakeholder requirement is correct or whether an approval record is authentic.
-
-### Automated Tests
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-Unit tests cover framework validation, requirements validation, Markdown extraction, and the included acceptance fixtures.
-
-### Continuous Integration
-
-GitHub Actions runs automated checks for the framework and requirements pipeline on configured repository events.
-
-- Workflow configuration: [`.github/workflows/framework-validation.yml`](.github/workflows/framework-validation.yml)
-- [View CI results](https://github.com/Hasanah977/prezekc-ai-framework/actions)
-
-CI checks are evidence of the behavior they execute. They do not replace engineering review or release authorization.
-
-## Getting Started
-
-### Prerequisites
-
-- Git.
-- Python 3.12 or later.
-- A compatible development environment.
-- An AI assistant or engineering operator capable of following repository instructions.
-
-Project-specific SDKs, frameworks, databases, and deployment tools are required only when the target project uses them.
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/Hasanah977/prezekc-ai-framework.git
-cd prezekc-ai-framework
-```
-
-### 2. Read the Operating Specifications
-
-Start with:
-
-1. [Agent Operating Contract](AGENTS.md)
-2. [Framework Specification](FRAMEWORK.md)
-3. [Governance Protocol](core/governance.md)
-4. [Workflow Protocol](core/workflow.md)
-5. [Verification Protocol](core/verification.md)
-
-### 3. Validate the Framework
-
-```bash
-python tools/validate_framework.py --strict
-python -m unittest discover -s tests -v
-```
-
-Both commands must complete successfully before relying on the repository as a verified framework baseline.
-
-### 4. Select the Engineering Activity
-
-Choose the applicable skill or workflow based on the task.
-
-For example, an initial system investigation uses `skills/system-analysis/SKILL.md`.
-
-Requirements decomposition uses `skills/prd-to-srs/SKILL.md`.
-
-Implementation uses the relevant web or mobile development skill after the required baselines have been established.
-
-### 5. Establish Project Context
-
-Before execution, identify the project objective, existing artifacts, applicable requirements, current repository state, available tools, and approval authority.
-
-Do not assume that a project has an approved PRD, SRS, or design merely because a corresponding template exists.
-
-## Repository Structure
+A successful check reports:
 
 ```text
-prezekc-ai-framework/
-├── .github/
-│   └── workflows/
-│       └── framework-validation.yml
-├── agents/
-│   ├── research-analyst.md
-│   ├── system-analyst.md
-│   ├── requirements-engineer.md
-│   ├── system-architect.md
-│   ├── development-engineer.md
-│   └── verification-engineer.md
-├── core/
-│   ├── governance.md
-│   ├── workflow.md
-│   └── verification.md
-├── docs/
-│   └── architecture.md
-├── examples/
-│   ├── acceptance/
-│   └── markdown/
-├── rules/
-│   ├── global-rules.md
-│   └── documentation-rules.md
-├── skills/
-│   ├── system-analysis/
-│   ├── comparative-study/
-│   ├── requirement-analysis/
-│   ├── prd-generation/
-│   ├── prd-to-srs/
-│   ├── system-design/
-│   ├── web-development/
-│   ├── mobile-development/
-│   ├── testing/
-│   └── deployment/
-├── templates/
-│   ├── system-analysis.md
-│   ├── comparative-study.md
-│   ├── requirement-analysis.md
-│   ├── prd.md
-│   ├── srs.md
-│   ├── requirement-traceability-matrix.md
-│   └── system-design.md
-├── tests/
-├── tools/
-│   ├── validate_framework.py
-│   ├── extract_requirements.py
-│   └── validate_requirements.py
-├── workflows/
-│   ├── full-lifecycle.md
-│   ├── web-application.md
-│   └── mobile-application.md
-├── AGENTS.md
-├── FRAMEWORK.md
-├── README.md
-└── CHANGELOG.md
+Requirements validation: 0 error(s), 0 warning(s)
 ```
 
-The tree describes the v0.1.0 release candidate. Release documentation and acceptance fixtures must be committed before publication.
+### Running the Acceptance Example
 
-Generated output under `build/` is not part of the framework source baseline.
+The repository includes a simulated engineering example covering system analysis, requirements, and design traceability.
 
-## Verification and Release Status
+Run the automated tests:
 
-### Local Verification
+```bash
+python -m unittest discover -s tests -v
+```
 
-The following results were reported during the v0.1.0 release assessment:
+Extract the acceptance requirements:
+
+```bash
+python tools/extract_requirements.py \
+  --prd examples/acceptance/prd.md \
+  --srs examples/acceptance/srs.md \
+  --rtm examples/acceptance/rtm.md \
+  --output build/acceptance
+```
+
+Validate the extracted requirements and design references:
+
+```bash
+python tools/validate_requirements.py \
+  --prd build/acceptance/prd.json \
+  --srs build/acceptance/srs.json \
+  --rtm build/acceptance/rtm.json \
+  --design examples/acceptance/design.json \
+  --strict
+```
+
+The acceptance scenario uses simulated engineering documents and approval records. It validates supported structural and traceability conditions, not the correctness of a production application.
+
+## Verification
+
+PREZEKC uses automated tests and GitHub Actions to verify supported framework behavior.
+
+The v0.1.0 release candidate was assessed locally with the following reported results:
 
 | Check | Result |
 |---|---|
 | Framework structural validation | 0 errors, 0 warnings |
-| Requirements manifest validation | 0 errors, 0 warnings |
+| Requirements and traceability validation | 0 errors, 0 warnings |
 | Automated unit tests | 31 passed |
-| Markdown-to-JSON integration | Passed |
-| Acceptance fixture traceability | Passed |
-| Git whitespace validation | Passed |
+| Markdown-to-JSON extraction | Passed |
+| Acceptance example validation | Passed |
+| Git whitespace verification | Passed |
 
-The acceptance scenario uses simulated evidence and approval records. It validates structural relationships and supported requirements mappings, not the substantive correctness of an independently developed software system.
+GitHub Actions executes the configured validation workflow on repository changes.
 
-### Release State
+[View Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
 
-| | |
-|---|---|
-| **Version** | `0.1.0` |
-| **State** | Release Candidate |
-| **Published release** | Pending |
+Verification results apply to the tested artifacts and environments. They do not establish universal correctness, production readiness, or approval of unreviewed requirements.
 
-The final release requires successful CI on the release commit, documentation review, and recorded authorization before publication of the `v0.1.0` tag.
+## Design Boundaries
 
-## Limitations
+PREZEKC v0.1.0 provides engineering procedures and executable validation utilities.
 
-PREZEKC AI v0.1.0 has the following boundaries:
+It does not provide:
 
-- It does not include an autonomous multi-agent execution runtime.
-- Skills and workflows are specifications executed by compatible assistants or engineering operators.
-- PRD-to-SRS decomposition is defined procedurally; the Python pipeline extracts and validates supported structures rather than autonomously generating complete SRS content.
-- Markdown parsing requires the supported document conventions.
-- Structural validation does not guarantee semantic correctness.
-- Approval metadata is checked for consistency but is not independently authenticated.
-- System design quality requires engineering review.
-- Web, Android, and iOS implementation depends on the project toolchain.
-- Platform compatibility, application security, and production deployment require project-specific verification.
-- The included acceptance test is a simulation, not evidence of a deployed application.
+- An autonomous multi-agent execution runtime.
+- Automatic generation of complete software projects without external AI assistance.
+- Independent authentication of stakeholder approval records.
+- General-purpose semantic validation of arbitrary requirements documents.
+- Guaranteed Android, iOS, or production deployment compatibility.
 
-These limitations define the current release boundary.
+The available Python tools focus on deterministic validation of supported document structures and requirements mappings.
 
-## Development Roadmap
-
-| Milestone | Status |
-|---|---|
-| Engineering governance and agent contracts | ✅ Implemented |
-| System analysis and research skills | ✅ Implemented |
-| Requirements engineering skills and templates | ✅ Implemented |
-| PRD-to-SRS procedure and RTM | ✅ Implemented |
-| System design skill and template | ✅ Implemented |
-| Web and mobile delivery workflows | ✅ Implemented |
-| Testing and deployment procedures | ✅ Implemented |
-| Framework structure validator | ✅ Implemented |
-| Requirements traceability validator | ✅ Implemented |
-| Markdown-to-JSON extraction | ✅ Implemented |
-| Automated CI checks | ✅ Implemented |
-| Simulated acceptance test | 🟢 Locally verified |
-| v0.1.0 release documentation and authorization | 🟡 Pending |
-| Autonomous agent orchestration | ⚪ Future development |
-| Broader semantic requirements validation | ⚪ Future development |
-| Multi-project evaluation | ⚪ Future development |
-
-"Implemented" refers to the corresponding repository artifact or utility. It does not imply that every engineering workflow has been executed against a production project.
+Project-specific implementation, security assessment, platform testing, and release authorization remain separate engineering responsibilities.
 
 ## Documentation
 
-| Reference | Description |
+| Document | Description |
 |---|---|
-| [AGENTS.md](AGENTS.md) | Agent operating contract |
-| [FRAMEWORK.md](FRAMEWORK.md) | Framework engineering specification |
-| [Architecture](docs/architecture.md) | Internal component architecture |
-| [Governance](core/governance.md) | Approval and authority rules |
-| [Workflow Protocol](core/workflow.md) | Lifecycle transitions |
-| [Verification Protocol](core/verification.md) | Verification rules |
-| [Global Rules](rules/global-rules.md) | Shared operational constraints |
-| [Documentation Standards](rules/documentation-rules.md) | Engineering document conventions |
-| [Full Lifecycle](workflows/full-lifecycle.md) | End-to-end delivery sequence |
+| [Agent Operating Contract](AGENTS.md) | Agent authority, behavior, and handoff requirements |
+| [Framework Specification](FRAMEWORK.md) | Core framework definition |
+| [Framework Architecture](docs/architecture.md) | Internal architecture and component integration |
+| [Governance](core/governance.md) | Approval authority and change control |
+| [Engineering Workflow](core/workflow.md) | Lifecycle requirements |
+| [Verification Protocol](core/verification.md) | Verification policies and evidence requirements |
+| [Full Lifecycle](workflows/full-lifecycle.md) | End-to-end engineering procedure |
+| [Web Application Workflow](workflows/web-application.md) | Web delivery process |
+| [Mobile Application Workflow](workflows/mobile-application.md) | Android and iOS delivery process |
+| [Changelog](CHANGELOG.md) | Version history and release notes |
+
+## Contributing
+
+Bug reports, documentation corrections, validation improvements, and engineering feedback may be submitted through [GitHub Issues](https://github.com/Hasanah977/prezekc-ai-framework/issues).
+
+Contributions should preserve existing engineering contracts, maintain requirement traceability where applicable, and pass the available validation checks.
+
+Changes that alter governance, approval authority, or controlled engineering behavior require explicit review.
+
 
 ## License
 
-No license has been selected for this repository.
+Copyright (c) 2026 PREZEKC AI Framework contributors.
 
-Until a license is published, public access to the source code does not by itself grant permission to use, modify, or redistribute it.
+This project is currently distributed without an open-source license.
+
+All rights are reserved by the respective copyright holders.
+Licensing terms will be established following the completion of
+the project's release and intellectual property review.
 
 ---
 
 <div align="center">
 
-**PREZEKC AI Framework** · v0.1.0 Release Candidate
+**PREZEKC AI Framework · v0.1.0 Release Candidate**
+
+Requirements-driven engineering. Controlled execution. Verifiable outcomes.
 
 </div>
