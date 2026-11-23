@@ -14,7 +14,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: framework-validation-${{ github.workflow }}-${{ github.ref }}
+  group: validation-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -37,20 +37,20 @@ jobs:
       - name: Compile Python utilities
         run: python -m compileall -q tools tests
 
-      - name: Validate framework structure
+      - name: Validate framework
         run: python tools/validate_framework.py --strict
 
-      - name: Execute unit tests
+      - name: Run unit tests
         run: python -m unittest discover -s tests -v
 
   requirements:
-    name: Requirements Traceability
+    name: Requirements Pipeline
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           persist-credentials: false
 
@@ -59,10 +59,18 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Validate example requirement manifests
+      - name: Extract requirements
+        run: |
+          python tools/extract_requirements.py \
+            --prd examples/markdown/prd.md \
+            --srs examples/markdown/srs.md \
+            --rtm examples/markdown/rtm.md \
+            --output build/ci-requirements
+
+      - name: Validate extracted requirements
         run: |
           python tools/validate_requirements.py \
-            --prd examples/prd.json \
-            --srs examples/srs.json \
-            --rtm examples/rtm.json \
+            --prd build/ci-requirements/prd.json \
+            --srs build/ci-requirements/srs.json \
+            --rtm build/ci-requirements/rtm.json \
             --strict
