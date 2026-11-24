@@ -506,3 +506,8 @@ the work performed and its limitations.
 - **Implementation:** Record changed files, commands executed, test outputs, and explicit `NOT_RUN` or `BLOCKED` statuses when checks cannot be completed.
 
 Use the evidence semantics in [Task Execution Contract](task-execution.md) and the decision handoff in [Next Action Protocol](next-action.md). `VERIFICATION_PASS` never equals `OWNER_APPROVED`.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Evidence-Based Engineering Quality
+
+For relevant changes, review architecture boundaries, code readability and stack compatibility, UI state/accessibility/responsiveness, defensive security concerns, and regression tests. Every executed check must name the command/tool and actual result (`PASS`, `FAIL`, `NOT_RUN`, `BLOCKED`); do not invent confidence percentages or `PASS` statuses. A validator may check **report structure** using [`quality_gate.py`](../tools/quality_gate.py), but it does not audit real code, certify security, or replace human review. See [Engineering Quality Contract](engineering-quality.md).

@@ -285,3 +285,8 @@ Include unresolved defects, blocked checks, and residual risks.
 - [Verification Protocol](../../core/verification.md)
 - [Governance](../../core/governance.md)
 - [Workflow](../../core/workflow.md)
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — TDD, Regression & Evidence
+
+For suitable behavioral changes, use Red–Green–Refactor: write a failing test for expected behavior, implement the smallest fix, then refactor while preserving passing tests. For legacy code, characterization tests can protect current behavior before refactoring. Select test types based on technology and risk. Record executed commands and outputs; `PASS`, `FAIL`, `NOT_RUN`, `BLOCKED` must reflect reality. Use [Quality Evidence Guide](../../docs/engineering-quality.md); structural validation of evidence is not the execution of tests.

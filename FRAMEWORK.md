@@ -963,3 +963,8 @@ PREZEKC preserves P01–P09, six logical engineering roles, and its controlled P
 PRD and SRS remain required controlled artifacts when applicable; they may be created using external editors or AI systems and then imported in the supported format. The validated content still requires semantic review and separate approvals. Optional authoring within PREZEKC remains supported.
 
 See [Import-First](docs/import-mode.md), [Next Action](core/next-action.md), [UI/UX Flow](skills/ui-ux-flow/SKILL.md), and [Task Breakdown](skills/task-breakdown/SKILL.md).
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Engineering Quality Extension
+
+v0.3.0 adds three selectively activated skills: [Code Quality](skills/code-quality/SKILL.md), [UI Design](skills/ui-design/SKILL.md), and [Defensive Security Review](skills/security-review/SKILL.md). These strengthen clean architecture, modern/clean code, user-interface quality, and evidence-based risk review. They do **not** replace P01–P09, the six role contracts, import-first PRD/SRS, the SDD/UI-UX/task-breakdown handoff, or human approval. See [Engineering Quality Contract](core/engineering-quality.md).

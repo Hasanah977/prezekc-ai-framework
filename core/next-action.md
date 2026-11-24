@@ -40,3 +40,8 @@ Use this compact structure. Omit inapplicable details, but do not fabricate evid
 **Recommended next action:** review authentication choice and SDD, then draft UI/UX Flow because user-facing journeys remain undefined.
 
 **Decision:** Would you like to review the SDD first, or should I explain the options?
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Beginner-Friendly Quality Handoff
+
+Keep final reports short and clear in the owner's language: **completed work**, **checks performed**, **remaining risks**, **one recommended next step and why**, and **one decision question**. Explain essential technical jargon once. Do not overload the owner with multiple unrelated options or request approval after every trivial substep already authorized.

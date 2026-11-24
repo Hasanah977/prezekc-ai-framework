@@ -313,3 +313,8 @@ unsupported overall success claim.
 - [Governance](../../core/governance.md)
 - [Workflow](../../core/workflow.md)
 - [Verification](../../core/verification.md)
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Modern Mobile Code Quality
+
+Check installed SDK, language, and library versions before using APIs. Keep state, domain logic, storage, and network/synchronization responsibilities appropriately separated. Use [code-quality](../code-quality/SKILL.md) for substantive changes, [ui-design](../ui-design/SKILL.md) for visuals, and [security-review](../security-review/SKILL.md) when handling login, permissions, local data, or sync. Prefer unit/widget/integration tests based on available devices and project stack; mark missing device checks `NOT_RUN`.

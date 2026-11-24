@@ -215,3 +215,8 @@ Do not assign `PASS` to unexecuted verification.
 - [Governance](../../core/governance.md)
 - [Workflow](../../core/workflow.md)
 - [Verification](../../core/verification.md)
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Modern Web Code Quality
+
+Verify actual language/framework/runtime versions before coding. Follow established project conventions, separation of concerns, safe input handling, and scoped updates. Activate [code-quality](../code-quality/SKILL.md) for substantive code changes, [ui-design](../ui-design/SKILL.md) for screen changes, and [security-review](../security-review/SKILL.md) for auth, sensitive data, public APIs, or deployment-risk changes. Run relevant checks, do not invent test results, and avoid unapproved UI redesign or dependencies.

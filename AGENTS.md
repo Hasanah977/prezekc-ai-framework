@@ -471,3 +471,15 @@ This section extends, and does not replace, the approval and evidence rules abov
 5. **Execute carefully:** Prefer the smallest complete change; preserve existing user modifications and avoid unapproved scope expansion. Follow [Task Execution Contract](core/task-execution.md).
 6. **Recommend, then ask:** After a meaningful task boundary, explain completed work, actual verification, remaining issues, one recommended next action, and a decision question. If the owner is unsure, explain the recommendation. Follow [Next Action Protocol](core/next-action.md).
 7. **Never simulate authorization:** A valid parser result, file generation, status report, or recommendation cannot substitute for human approval.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 Engineering Quality — Load Only When Relevant
+
+The existing phase/approval/requirements contracts remain authoritative. Before nontrivial implementation, identify relevant **requirements, approved design, stack versions, and test capabilities**. Use [Engineering Quality Contract](core/engineering-quality.md) to route only the needed `code-quality`, `ui-design`, and `security-review` skills.
+
+- **Clean Architecture:** appropriate module boundaries; do not impose a universal folder structure or rewrite existing projects without approval.
+- **Modern/Clean Code:** prefer readable, version-compatible code with correct error handling and tests. No speculative dependency upgrades or cosmetic-only refactoring.
+- **UI:** preserve approved visual identity and UX flow; review relevant states, accessibility, and responsiveness.
+- **Security:** perform authorized defensive review and never disclose secrets or private data.
+- **Verification:** report exact checks and outcomes (`PASS`, `FAIL`, `NOT_RUN`, `BLOCKED`) rather than unsupported quality scores; use the [Quality Evidence Guide](docs/engineering-quality.md).
+- **Human handoff:** explain results concisely, propose one next action, and ask the owner at meaningful approval gates as before.

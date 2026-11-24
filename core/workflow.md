@@ -656,3 +656,8 @@ For applicable software projects, P06 outputs include the SDD (architecture, dat
 At meaningful phase/task boundaries, use [Human-Guided Next Action](next-action.md): report work, checks, unresolved items, a single recommended next action, and the required owner decision. Do not ask after every trivial step within an already authorized task.
 
 For import mechanics, follow [Import-First Guide](../docs/import-mode.md).
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Quality Routing at Implementation Time
+
+At P06 architecture review, use [code-quality](../skills/code-quality/SKILL.md) where boundary decisions are significant. At P07 load the applicable web/mobile skill and only relevant quality skills: `ui-design` for visual changes, `security-review` for sensitive/auth/API changes, and `code-quality` for nontrivial implementations or refactors. At P08 verify actual behavior using the right stack tools; do not treat a checklist or AI judgment as a passing test. New and existing projects use the same approved baselines, bounded task scope, and human handoffs. See [Engineering Quality Contract](engineering-quality.md).

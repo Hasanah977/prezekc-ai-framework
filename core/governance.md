@@ -382,3 +382,8 @@ Detailed verification criteria are defined in
 External authorship does not weaken the requirement baseline. Every imported PRD, SRS, and RTM retains source identity, version, provenance, and review status. A successful extraction or validator run is not an approval record. A draft PRD is not authoritative for a final SRS; a draft SRS is not an approved implementation baseline. Owner authorization is required at the existing phase gates.
 
 An AI recommendation at the end of a task is **not authorization** to begin a different task. Use the [Next Action Protocol](next-action.md) and [Import-First Guide](../docs/import-mode.md). Existing safety and change-control rules take precedence.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Quality Change Governance
+
+Architecture redesigns, behavior-changing refactors, new dependencies, sensitive data changes, and material UI deviations require owner decisions under the existing gates. Quality review may **recommend** changes but never self-authorize them. Only inspect or security-test assets for which the owner has appropriate authorization. Do not print secrets, access tokens, or real sensitive records in logs or reports. See [Engineering Quality Contract](engineering-quality.md).

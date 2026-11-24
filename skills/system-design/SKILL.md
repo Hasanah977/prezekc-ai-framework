@@ -826,3 +826,8 @@ The P06 technical deliverable may be called **Software Design Document (SDD)** o
 When user-facing behavior is in scope, coordinate with [UI/UX Flow Skill](../ui-ux-flow/SKILL.md) and its [template](../../templates/ui-ux-flow.md). Define screen navigation, user journeys, validation and error states, access restrictions, and relevant accessibility/device constraints. Do not force diagrams when prose/tables suffice.
 
 After design review and owner approval, hand off to [Task Breakdown Skill](../task-breakdown/SKILL.md) before beginning controlled P07 implementation. Recommend the next step using [Next Action Protocol](../../core/next-action.md). Neither a completed SDD nor visual prototype is self-approved.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Context-Sensitive Clean Architecture
+
+Review module responsibilities, data flow, API contracts, dependency direction, and testability before implementation. Choose architecture complexity to match the domain and project; no compulsory Clean Architecture layers for simple apps. For existing systems, assess current boundaries before proposing refactors. Use [code-quality](../code-quality/SKILL.md) for maintainability review; document important deviations and obtain owner approval for structural changes. Preserve SRS/SDD traceability.

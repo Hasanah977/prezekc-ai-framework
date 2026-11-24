@@ -44,3 +44,8 @@ owner_approval: PENDING
 ```
 
 A sample is illustrative and is not a validated record of a real project.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## v0.3.0 — Clean Code & Safe Refactoring Procedure
+
+For a material code task: inspect relevant code in read-only mode → identify baseline/stack → state the smallest authorized change → select the appropriate quality skills → preserve existing behavior with tests → implement → run actual checks → report evidence and residual risk. Significant refactors require a plan and owner approval before changes. Preserve previously approved UI and project-specific conventions. Use [code-quality](../skills/code-quality/SKILL.md) when relevant.

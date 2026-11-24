@@ -6,7 +6,7 @@
 
 Understand the problem. Preserve the requirements. Design the experience. Build in controlled steps. Verify what actually works.
 
-**v0.2.0 · Development Candidate**
+**v0.3.0 · Engineering Quality Candidate**
 
 [![Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
 ![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)
@@ -87,6 +87,27 @@ At meaningful checkpoints, the agent provides:
 5. **Decision:** ask whether the owner wants to proceed, review, or choose another direction.
 
 The assistant should **recommend** a sensible next action when the owner is unsure. It must not treat its own recommendation as approval. See the [Next Action Protocol](core/next-action.md).
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## Engineering Quality · v0.3.0 Candidate
+
+**Clean Architecture · Modern Code · Clean Code · UI Quality · Defensive Security**
+
+PREZEKC v0.3.0 extends the **v0.2.0 workflow**, rather than replacing it. PRD/SRS import-first, separate owner approvals, SDD, UI/UX Flow, Task Breakdown, P01–P09, and human-guided next actions remain in force.
+
+| New capability | What it does | Skill |
+|---|---|---|
+| **Clean Architecture & Code Quality** | Checks module boundaries, responsibilities, maintainability and safe refactoring | [`code-quality`](skills/code-quality/SKILL.md) |
+| **Modern, compatible code** | Reviews APIs and conventions against the project's actual stack versions | [`code-quality`](skills/code-quality/SKILL.md) |
+| **UI Design Quality** | Preserves approved visuals; reviews components, states, responsiveness and accessibility | [`ui-design`](skills/ui-design/SKILL.md) |
+| **Defensive Security Review** | Reviews authorization, data protection, secrets and input surfaces within approved scope | [`security-review`](skills/security-review/SKILL.md) |
+| **Evidence-Based Quality Gate** | Checks the structure of test reports without fabricating execution or approval | [`quality_gate.py`](tools/quality_gate.py) |
+
+**How to use:** tell your AI coding assistant to inspect the project and approved requirements, load only the relevant skills, plan a minimal change, run available checks, report honest evidence, and recommend **one next step** for your decision.
+
+> **Scope:** PREZEKC provides engineering instructions, templates and lightweight validators; it is **not** an autonomous runtime, code scanner, penetration tester or security certification.
+
+Start with the [Engineering Quality Guide](docs/engineering-quality.md) or see [v0.3.0 Release Notes](docs/releases/v0.3.0-release-notes.md).
 
 ## Agent Skills
 

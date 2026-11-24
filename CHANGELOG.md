@@ -75,3 +75,22 @@ CI confirmation for the final release commit must be recorded before publication
 
 - Mobile build and production deployment capabilities depend on the target project's environment and toolchain.
 - The acceptance example uses simulated project evidence and approval records.
+
+<!-- PREZEKC-V030-EXTENSION: DO NOT DUPLICATE -->
+## [0.3.0] — Engineering Quality Candidate
+
+### Added
+- `ui-design`, `security-review`, and `code-quality` skills (15 total with v0.2.0).
+- Engineering Quality Contract, quality review templates, and defensive security guidance.
+- `tools/quality_gate.py` for **structural** validation of reported check evidence (not an automated security scan).
+- Five regression tests for v0.3.0 components and evidence reporting.
+
+### Enhanced
+- Context-sensitive Clean Architecture, Modern Code, safe refactoring, stack-aware TDD and regression checks.
+- UI responsiveness/accessibility review and authorized security review workflows.
+- Lightweight, human-guided, evidence-based task handoffs.
+
+### Preserved
+- Import-first PRD/SRS, distinct owner approvals, SDD, UI/UX Flow, Task Breakdown, and P01–P09.
+
+**Status:** candidate until validation, actual-project acceptance review, and owner release approval are complete.
