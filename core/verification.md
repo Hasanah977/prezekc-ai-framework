@@ -495,3 +495,14 @@ the work performed and its limitations.
 - [Workflow Protocol](workflow.md)
 
 **PREZEKC AI Verification and Quality Protocol — v0.1.0**
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — Artifact-Specific Quality and Handoff Gates
+
+- **Imported PRD/SRS:** Validate supported structure, IDs, baseline relationships, and RTM references; conduct a separate human content review for completeness, intent, contradictions, and feasibility. Machine validation does not authenticate approval.
+- **SDD:** Check required architecture/data/API/security decisions against approved SRS IDs and record unverified design decisions.
+- **UI/UX Flow:** Check role permissions, navigation, critical interface states, errors and recovery, and traceability to in-scope requirements.
+- **Task Breakdown:** Check scope coverage, dependency ordering, acceptance criteria, test plan, and that tasks are not marked completed from planning alone.
+- **Implementation:** Record changed files, commands executed, test outputs, and explicit `NOT_RUN` or `BLOCKED` statuses when checks cannot be completed.
+
+Use the evidence semantics in [Task Execution Contract](task-execution.md) and the decision handoff in [Next Action Protocol](next-action.md). `VERIFICATION_PASS` never equals `OWNER_APPROVED`.

@@ -18,10 +18,12 @@ EXPECTED_SKILLS = (
     'system-analysis', 'comparative-study', 'requirement-analysis',
     'prd-generation', 'prd-to-srs', 'system-design',
     'web-development', 'mobile-development', 'testing', 'deployment',
+    'ui-ux-flow', 'task-breakdown',
 )
 EXPECTED_TEMPLATES = (
     'prd.md', 'srs.md', 'requirement-traceability-matrix.md',
     'system-design.md',
+    'ui-ux-flow.md', 'task-breakdown.md',
 )
 LINK_RE = re.compile(r'(?<!!)\[[^\]\n]+\]\((<[^>]+>|[^)]+)\)')
 HEADING_RE = re.compile(r'^\s{0,3}#{1,6}\s+\S', re.MULTILINE)

@@ -1,454 +1,249 @@
 <div align="center">
 
-# PREZEKC AI Framework
+# PREZEKC AI
+
+**A skill-driven engineering workflow for AI coding agents.**
+
+Understand the problem. Preserve the requirements. Design the experience. Build in controlled steps. Verify what actually works.
+
+**v0.2.0 · Development Candidate**
 
 [![Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
-[![Release](https://img.shields.io/badge/release-v0.1.0_RC-orange.svg)](CHANGELOG.md)
-[![Python](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-![Platforms](https://img.shields.io/badge/platform-web%20%7C%20android%20%7C%20ios-3DDC84)
-![Stars](https://img.shields.io/github/stars/Hasanah977/prezekc-ai-framework?logo=github)
-![Last Commit](https://img.shields.io/github/last-commit/Hasanah977/prezekc-ai-framework)
+![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)
+![Status](https://img.shields.io/badge/status-development%20candidate-orange)
 
-A structured engineering framework for building software with AI assistance, from system analysis and requirements definition to architecture, implementation, verification, and delivery.
-
-**Requirements-driven engineering. Controlled execution. Verifiable outcomes.**
-
-[📖 **Read the documentation →**](#documentation)
-
-[Getting Started](#installation) · [How It Works](#how-it-works) · [Usage](#usage) · [Report an Issue](https://github.com/Hasanah977/prezekc-ai-framework/issues)
+[Install](#installation) · [How It Works](#how-it-works) · [Import Requirements](#requirements-import) · [Agent Skills](#agent-skills) · [Documentation](#documentation)
 
 </div>
 
 ---
 
-## Contents
-
-- [Why PREZEKC?](#why-prezekc)
-- [Features](#features)
-- [How It Works](#how-it-works)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Verification](#verification)
-- [Design Boundaries](#design-boundaries)
-- [Documentation](#documentation)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## Why PREZEKC?
 
-AI coding assistants can generate software quickly, but code generation alone does not establish that a system satisfies its requirements.
+An AI assistant can write code, but code alone does not show whether the system meets a real need. Without a consistent operating method, the assistant may skip analysis, invent features, assume an interface, or report a task as complete before testing it.
 
-Product scope may be unclear, requirements may change without authorization, implementation decisions may diverge from specifications, and successful code generation may be mistaken for verified delivery.
+**PREZEKC AI is an engineering operating framework, not a new AI model or autonomous runtime.** It gives a compatible AI coding assistant explicit rules for making decisions, selecting skills, working from approved artifacts, limiting changes, and reporting verifiable results.
 
-**PREZEKC AI addresses these problems by introducing a controlled engineering process around AI-assisted development.**
+Its core commitments are straightforward:
 
-The framework establishes:
-
-- **Analysis before implementation.** Understand the existing process, stakeholders, and underlying problems before defining features.
-- **Requirements as the source of truth.** Derive system behavior from documented product requirements rather than unsupported assumptions.
-- **Traceability across artifacts.** Maintain explicit relationships between PRD, SRS, system design, implementation, and verification.
-- **Human-controlled decisions.** Keep approval of scope, requirements, architecture, and production releases with authorized project owners.
-- **Evidence-based verification.** Support completion claims with recorded checks, test results, and identifiable evidence.
-- **Technology-independent workflows.** Apply consistent engineering procedures across web, backend, Android, iOS, and cross-platform projects.
-
-PREZEKC is designed for software engineers, system analysts, researchers, students, and development teams using AI assistants as part of their engineering workflow.
-
-## Features
-
-### Engineering Lifecycle
-
-PREZEKC defines nine connected engineering phases:
-
-| Phase | Activity | Deliverable |
-|---|---|---|
-| P01 | System Analysis | Existing System Analysis Report |
-| P02 | Comparative Study | Comparative Study Report |
-| P03 | Requirement Analysis | Requirement Analysis Document |
-| P04 | Product Requirements | Product Requirements Document |
-| P05 | Software Requirements | Software Requirements Specification and RTM |
-| P06 | System Design | Architecture and System Design Specification |
-| P07 | Implementation | Application source and implementation records |
-| P08 | Verification | Test evidence and verification report |
-| P09 | Deployment & Maintenance | Release and operational records |
-
-Each phase defines its inputs, responsibilities, execution procedure, and completion conditions.
-
-### Engineering Agents
-
-Six engineering roles coordinate the framework's responsibilities.
-
-| Role | Responsibility |
-|---|---|
-| Research Analyst | Research and comparative evaluation |
-| System Analyst | Existing-system investigation and problem analysis |
-| Requirements Engineer | Requirements analysis, PRD, SRS, and traceability |
-| System Architect | Architecture, components, data models, and interfaces |
-| Development Engineer | Software implementation and developer-level verification |
-| Verification Engineer | Independent verification and evidence assessment |
-
-These are logical engineering roles. They do not imply six autonomous AI processes running independently.
-
-### Reusable Engineering Skills
-
-PREZEKC includes ten task-specific procedures:
-
-- System Analysis
-- Comparative Study
-- Requirement Analysis
-- PRD Generation
-- PRD-to-SRS Engineering
-- System Design
-- Web Development
-- Mobile Development
-- Software Testing
-- Deployment
-
-Each skill defines prerequisites, execution steps, deliverables, verification conditions, and failure handling.
-
-### Document Engineering
-
-The framework provides controlled templates for:
-
-- Existing System Analysis
-- Comparative Study
-- Requirement Analysis
-- Product Requirements Document (PRD)
-- Software Requirements Specification (SRS)
-- Requirement Traceability Matrix (RTM)
-- System Design Specification
-
-The documentation process preserves requirement identifiers and supports review of changes across related artifacts.
-
-### Automated Validation
-
-Three Python utilities implement the executable validation layer.
-
-| Tool | Purpose |
-|---|---|
-| `validate_framework.py` | Verify repository structure, skill metadata, and local documentation references |
-| `extract_requirements.py` | Extract supported PRD, SRS, and RTM Markdown into structured JSON |
-| `validate_requirements.py` | Check requirement identifiers, baseline references, coverage, and traceability mappings |
-
-The validation tools use the Python Standard Library. No additional Python packages are required for the documented checks.
+- **Requirements before guesses.** Product intent and system behavior are established before production implementation.
+- **Import before regenerate.** Reuse PRD and SRS written in external tools; generate new documents only when requested.
+- **Design before coding.** Define system architecture, user journeys, screens, and interaction states before implementation tasks.
+- **Skills on demand.** Load the relevant agent role and skill instead of the entire framework for every task.
+- **Small, traceable tasks.** Implement authorized increments tied to requirements and design.
+- **Evidence, then decisions.** Report real checks, recommend the next action, and ask for human decisions at meaningful checkpoints.
 
 ## How It Works
 
-PREZEKC combines engineering instructions with deterministic validation tools.
-
-The operating model follows this sequence:
+PREZEKC retains its engineering lifecycle **P01–P09** while adding an explicit design-to-task handoff:
 
 ```text
-Project Context
-      |
-      v
-System & Requirement Analysis
-      |
-      v
-Product Requirements (PRD)
-      |
-      | Human Approval
-      v
-Software Requirements (SRS)
-      |
-      | Human Approval
-      v
-System Design
-      |
-      | Design Review
-      v
-Implementation
-      |
-      v
-Verification
-      |
-      | Release Authorization
-      v
-Deployment & Maintenance
+Idea / Existing Project
+        |
+        v
+  Project Intake
+        |
+        v
+P01 System Analysis --> P02 Comparative Study
+        |
+        v
+P03 Requirement Analysis
+        |
+        v
+P04 PRD (Import-First or Optional Authoring)
+        |
+   Owner Approval
+        v
+P05 SRS + RTM (Import-First or Optional Authoring)
+        |
+   Owner Approval
+        v
+P06 SDD / System Design <--> UI/UX Flow
+        |
+   Design Approval
+        v
+Task Breakdown
+        |
+        v
+P07 Implementation -> P08 Verification
+        |
+   Release Approval
+        v
+P09 Deployment & Maintenance
 ```
 
-The AI assistant follows the applicable role and skill instructions. The project owner remains responsible for consequential approval decisions.
+**PRD** defines product goals, users, features, scope, and user flows at the product level. **SRS** specifies testable behavior, validation, permissions, failure handling, and quality requirements. **SDD** defines architecture, data models, API contracts, integration, and backend components. **UI/UX Flow** establishes journeys, navigation, screens, and interaction states. **Task Breakdown** turns approved design into ordered, verifiable implementation work.
 
-For requirements engineering, PREZEKC maintains a traceable relationship between product intent and system behavior.
+Artifacts are not self-approving. Validation results and **human authorization are separate conditions**. For existing projects, the assistant first inspects approved baselines and begins from the relevant activity rather than mechanically recreating every phase.
 
-**Example:** a product requirement establishes that authorized reporting personnel must be able to access consolidated records for a selected period.
+### Human-Guided Next Actions
 
-```text
-PRD-FR-001  Consolidated record access
-    |
-    +-- SRS-FR-001.1  Reporting-period selection
-    |
-    +-- SRS-FR-001.2  Record retrieval
-    |
-    +-- SRS-FR-001.3  Access authorization
-```
+At meaningful checkpoints, the agent provides:
 
-The Requirement Traceability Matrix records these relationships and connects them to subsequent design and verification artifacts.
+1. **Completed:** what actually changed or was produced.
+2. **Verified:** checks run and their real results; identify checks not run.
+3. **Open:** remaining issues, risks, and decisions.
+4. **Recommended:** one next step and why it is appropriate.
+5. **Decision:** ask whether the owner wants to proceed, review, or choose another direction.
 
-The Python validators examine the supported requirement mappings. They do not independently determine whether the underlying business requirement is correct.
+The assistant should **recommend** a sensible next action when the owner is unsure. It must not treat its own recommendation as approval. See the [Next Action Protocol](core/next-action.md).
+
+## Agent Skills
+
+PREZEKC v0.2.0 provides **12 engineering skills**, invoked as needed:
+
+| Skill | Use it when |
+|---|---|
+| [`system-analysis`](skills/system-analysis/SKILL.md) | Investigating a current process, stakeholders, problems, and evidence |
+| [`comparative-study`](skills/comparative-study/SKILL.md) | Comparing credible approaches and solutions |
+| [`requirement-analysis`](skills/requirement-analysis/SKILL.md) | Eliciting and refining needs and constraints |
+| [`prd-generation`](skills/prd-generation/SKILL.md) | Importing/reviewing a PRD or optionally authoring one |
+| [`prd-to-srs`](skills/prd-to-srs/SKILL.md) | Importing/reviewing an SRS and RTM, or optionally deriving them from an approved PRD |
+| [`system-design`](skills/system-design/SKILL.md) | Defining an implementable SDD, architecture, data, and APIs |
+| [`ui-ux-flow`](skills/ui-ux-flow/SKILL.md) | Specifying user journeys, navigation, screens, and UI states |
+| [`task-breakdown`](skills/task-breakdown/SKILL.md) | Planning small, sequenced tasks with acceptance criteria |
+| [`web-development`](skills/web-development/SKILL.md) | Implementing web application changes |
+| [`mobile-development`](skills/mobile-development/SKILL.md) | Implementing Android, iOS, or cross-platform application changes |
+| [`testing`](skills/testing/SKILL.md) | Creating and executing applicable verification |
+| [`deployment`](skills/deployment/SKILL.md) | Preparing and controlling releases and operational handoff |
+
+Six logical engineering roles govern work: Research Analyst, System Analyst, Requirements Engineer, System Architect, Development Engineer, and Verification Engineer. They are **role contracts**, not six independent running AI instances.
 
 ## Installation
 
-PREZEKC is distributed as a Git repository, not as a PyPI package.
+PREZEKC is distributed as a **Git repository**; it does not currently support `npx prezekc-ai init` or `pip install prezekc-ai`.
 
-Installation consists of obtaining the framework, validating its contents, and making its instructions available to the AI assistant or engineering team.
+**Prerequisites:** Git, Python 3.12+, and an AI assistant with access to local project files.
 
-### Requirements
+### 1. Clone the framework
 
-- Git
-- Python 3.12 or later
-- A terminal or development environment
-- An AI assistant or engineering operator capable of reading repository instructions
-
-Additional tools such as Node.js, PHP, Go, Android SDK, or Xcode are only required when the target software project uses them.
-
-### 1. Clone PREZEKC
-
-```bash
+```powershell
 git clone https://github.com/Hasanah977/prezekc-ai-framework.git
 cd prezekc-ai-framework
 ```
 
-For a specific published release, check out its Git tag once that release is available:
+### 2. Verify the framework
 
-```bash
-git fetch --tags
-git checkout v0.1.0
-```
-
-Until the tag is published, use the `main` branch for the release candidate.
-
-### 2. Verify the Installation
-
-Run the framework validator:
-
-```bash
+```powershell
 python tools/validate_framework.py --strict
-```
-
-Run the automated tests:
-
-```bash
 python -m unittest discover -s tests -v
 ```
 
-The checks should complete successfully before the framework is used as a validated local baseline.
+### 3. Install into one project
 
-### 3. Connect PREZEKC to Your Project
+Create or select a separate **existing** project folder, then run from the PREZEKC repository:
 
-PREZEKC does not require a global installer or changes to your application dependencies.
-
-For a new or existing software project, keep the framework repository available alongside the target project.
-
-Example:
-
-```text
-workspace/
-    prezekc-ai-framework/
-    my-application/
+```powershell
+python tools/prezekc.py init --project "D:\Projects\my-app"
 ```
 
-Open the project in your development environment and provide the AI assistant with access to the framework instructions.
+The initializer copies framework instructions/tools into `my-app/.prezekc/framework/` and creates a root `AGENTS.md` **only if none exists**. It refuses to overwrite an existing framework installation or project rules. The framework repository remains separate; the IDE needs to open **only `my-app`**.
 
-The recommended reading order is:
+> The initializer provides a portable local reference. Automatic instruction discovery varies by coding assistant, so explicitly ask the agent to read the project `AGENTS.md` if it has not done so.
 
-1. `AGENTS.md`: agent operating contract.
-2. `core/governance.md`: authority and change control.
-3. `core/workflow.md`: lifecycle requirements.
-4. The relevant file in `agents/`.
-5. The required `skills/<skill-name>/SKILL.md`.
+For caveats and updates, see the [Single-Project Installation Guide](docs/installation.md).
 
-The framework can also be copied into a project as a self-contained reference directory. Preserve relative file paths so links between its specifications remain valid.
+### 4. Start your AI assistant
 
-> **Note:** PREZEKC does not automatically register its skills in every AI assistant. How instructions are attached or loaded depends on the assistant or development environment being used.
-
-## Usage
-
-### Starting a New Project
-
-Start by providing the project objective and identifying the intended software platform.
-
-An example instruction to an AI assistant:
+In the target project's chat or agent mode:
 
 ```text
-Use PREZEKC AI Framework as the engineering procedure
-for this project.
+Use PREZEKC AI from .prezekc/framework for this project.
+Read the project AGENTS.md, the relevant core protocol,
+and only the role contract and SKILL.md needed for my task.
 
-Read the framework's AGENTS.md and core protocols.
-
-Begin with System Analysis. Identify the current process,
-stakeholders, known problems, evidence, and information gaps.
-
-Do not introduce unapproved product requirements or
-proceed to implementation before the applicable
-requirements and design baselines are established.
+Inspect existing files, requirements, and approvals first.
+Do not invent features, approval records, or test results.
+After a meaningful task, show actual verification,
+recommend the best next action, and ask for my decision.
 ```
 
-The assistant should apply the relevant analysis skill, produce the required artifact, and report unresolved findings.
+## Requirements Import
 
-Continue to the next phase when its prerequisites are satisfied.
+**PRD and SRS remain first-class requirements artifacts.** Import Mode is the preferred method when documents have already been written by the owner or an external AI/editor.
 
-### Working with an Existing Project
+1. Draft PRD using [`templates/prd.md`](templates/prd.md), with goals, users, scope, features, and product-level flows.
+2. Import its **supported Markdown** representation; review sources, IDs, and semantics. The owner **approves the PRD** before it is used as the authoritative SRS baseline.
+3. Draft SRS using [`templates/srs.md`](templates/srs.md) and the approved PRD; create an [`RTM`](templates/requirement-traceability-matrix.md).
+4. Import and validate both. The owner **approves the SRS separately** before design becomes the implementation baseline.
 
-PREZEKC can be applied without rebuilding the project from the beginning.
+The existing Python extraction utilities do **not** ingest arbitrary PDF/DOCX files directly; convert external documents faithfully to the supported Markdown format first. Import is not a substitute for human requirements review.
 
-The operating procedure is:
+### Run extraction
 
-1. Inspect the current repository and project documentation.
-2. Identify existing approved requirements and design baselines.
-3. Determine the requested change and affected components.
-4. Apply the relevant engineering skill.
-5. Evaluate downstream impact.
-6. Verify the completed change.
+From the framework repository, using the supplied fixture documents:
 
-Existing code, design conventions, and user changes must be preserved unless modification is authorized.
-
-### Extracting PRD, SRS, and RTM
-
-The document extraction tool converts supported Markdown artifacts into JSON manifests for deterministic validation.
-
-Example using the included fixtures:
-
-```bash
-python tools/extract_requirements.py \
-  --prd examples/markdown/prd.md \
-  --srs examples/markdown/srs.md \
-  --rtm examples/markdown/rtm.md \
+```powershell
+python tools/extract_requirements.py `
+  --prd examples/markdown/prd.md `
+  --srs examples/markdown/srs.md `
+  --rtm examples/markdown/rtm.md `
   --output build/requirements
 ```
 
-The output contains:
+### Validate mappings
 
-```text
-build/requirements/prd.json
-build/requirements/srs.json
-build/requirements/rtm.json
-```
-
-The extractor does not overwrite existing manifests. Choose a new output directory for subsequent runs.
-
-Validate the generated manifests:
-
-```bash
-python tools/validate_requirements.py \
-  --prd build/requirements/prd.json \
-  --srs build/requirements/srs.json \
-  --rtm build/requirements/rtm.json \
+```powershell
+python tools/validate_requirements.py `
+  --prd build/requirements/prd.json `
+  --srs build/requirements/srs.json `
+  --rtm build/requirements/rtm.json `
   --strict
 ```
 
-A successful check reports:
+Choose a fresh output directory for each extraction. The extractor does not overwrite an existing manifest. Use your own approved documents instead of the fixtures for real work.
 
-```text
-Requirements validation: 0 error(s), 0 warning(s)
-```
+See the detailed [Import-First Guide](docs/import-mode.md).
 
-### Running the Acceptance Example
+## Design, UI/UX, and Task Planning
 
-The repository includes a simulated engineering example covering system analysis, requirements, and design traceability.
+| Artifact | Primary questions | Template |
+|---|---|---|
+| **SDD** | How do components, database, API, security, and backend work? | [System Design](templates/system-design.md) |
+| **UI/UX Flow** | What does each actor see and do, including error and offline states? | [UI/UX Flow](templates/ui-ux-flow.md) |
+| **Task Breakdown** | What is the smallest demonstrable increment, in what order, and how will it be checked? | [Task Breakdown](templates/task-breakdown.md) |
 
-Run the automated tests:
-
-```bash
-python -m unittest discover -s tests -v
-```
-
-Extract the acceptance requirements:
-
-```bash
-python tools/extract_requirements.py \
-  --prd examples/acceptance/prd.md \
-  --srs examples/acceptance/srs.md \
-  --rtm examples/acceptance/rtm.md \
-  --output build/acceptance
-```
-
-Validate the extracted requirements and design references:
-
-```bash
-python tools/validate_requirements.py \
-  --prd build/acceptance/prd.json \
-  --srs build/acceptance/srs.json \
-  --rtm build/acceptance/rtm.json \
-  --design examples/acceptance/design.json \
-  --strict
-```
-
-The acceptance scenario uses simulated engineering documents and approval records. It validates supported structural and traceability conditions, not the correctness of a production application.
+System design and interface flow may be refined iteratively. Both must remain consistent with approved requirements. Diagrams are optional when tables or prose convey the decision more clearly.
 
 ## Verification
 
-PREZEKC uses automated tests and GitHub Actions to verify supported framework behavior.
+PREZEKC includes three Python utilities:
 
-The v0.1.0 release candidate was assessed locally with the following reported results:
+- `tools/validate_framework.py` — repository structure, skill metadata, and local references.
+- `tools/extract_requirements.py` — supported Markdown PRD/SRS/RTM to JSON.
+- `tools/validate_requirements.py` — supported identifiers, baselines, coverage, and traceability.
 
-| Check | Result |
-|---|---|
-| Framework structural validation | 0 errors, 0 warnings |
-| Requirements and traceability validation | 0 errors, 0 warnings |
-| Automated unit tests | 31 passed |
-| Markdown-to-JSON extraction | Passed |
-| Acceptance example validation | Passed |
-| Git whitespace verification | Passed |
+Validation is also configured through [GitHub Actions](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml).
 
-GitHub Actions executes the configured validation workflow on repository changes.
+The v0.1.0 baseline was reported to pass **31 unit tests** locally, with framework and requirements validations reporting zero errors and warnings. **v0.2.0 remains a development candidate** until its new/updated checks pass on the final release commit and the release is authorized. Do not treat that earlier result as verification of the new release.
 
-[View Framework Validation →](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
-
-Verification results apply to the tested artifacts and environments. They do not establish universal correctness, production readiness, or approval of unreviewed requirements.
-
-## Design Boundaries
-
-PREZEKC v0.1.0 provides engineering procedures and executable validation utilities.
-
-It does not provide:
-
-- An autonomous multi-agent execution runtime.
-- Automatic generation of complete software projects without external AI assistance.
-- Independent authentication of stakeholder approval records.
-- General-purpose semantic validation of arbitrary requirements documents.
-- Guaranteed Android, iOS, or production deployment compatibility.
-
-The available Python tools focus on deterministic validation of supported document structures and requirements mappings.
-
-Project-specific implementation, security assessment, platform testing, and release authorization remain separate engineering responsibilities.
+Automated checks do not prove semantic correctness, production suitability, actual user approval, or successful application deployment.
 
 ## Documentation
 
-| Document | Description |
-|---|---|
-| [Agent Operating Contract](AGENTS.md) | Agent authority, behavior, and handoff requirements |
-| [Framework Specification](FRAMEWORK.md) | Core framework definition |
-| [Framework Architecture](docs/architecture.md) | Internal architecture and component integration |
-| [Governance](core/governance.md) | Approval authority and change control |
-| [Engineering Workflow](core/workflow.md) | Lifecycle requirements |
-| [Verification Protocol](core/verification.md) | Verification policies and evidence requirements |
-| [Full Lifecycle](workflows/full-lifecycle.md) | End-to-end engineering procedure |
-| [Web Application Workflow](workflows/web-application.md) | Web delivery process |
-| [Mobile Application Workflow](workflows/mobile-application.md) | Android and iOS delivery process |
-| [Changelog](CHANGELOG.md) | Version history and release notes |
+- [Agent Operating Contract](AGENTS.md)
+- [Framework Specification](FRAMEWORK.md)
+- [Governance](core/governance.md) · [Workflow](core/workflow.md) · [Verification](core/verification.md)
+- [Import-First PRD/SRS](docs/import-mode.md)
+- [Human-Guided Next Actions](core/next-action.md)
+- [Task Execution Contract](core/task-execution.md)
+- [Single-Project Installation](docs/installation.md)
+- [Full Lifecycle](workflows/full-lifecycle.md) · [Web](workflows/web-application.md) · [Mobile](workflows/mobile-application.md)
 
 ## Contributing
 
-Bug reports, documentation corrections, validation improvements, and engineering feedback may be submitted through [GitHub Issues](https://github.com/Hasanah977/prezekc-ai-framework/issues).
-
-Contributions should preserve existing engineering contracts, maintain requirement traceability where applicable, and pass the available validation checks.
-
-Changes that alter governance, approval authority, or controlled engineering behavior require explicit review.
+Bug reports and engineering feedback are welcome via [GitHub Issues](https://github.com/Hasanah977/prezekc-ai-framework/issues). Proposals that affect approval gates or scope control require explicit review. Run the available checks and report their outputs before submitting changes.
 
 ## License
 
-Copyright (c) 2026 PREZEKC AI Framework contributors.
-
-This project is currently distributed without an open-source license.
-
-All rights are reserved by the respective copyright holders. Licensing terms will be established following the completion of the project's release and intellectual property review.
+**No open-source license has been granted for this repository at this time.** The respective copyright holders retain their rights. Public GitHub visibility does not, by itself, authorize reuse or redistribution beyond applicable law and platform terms. Licensing may be established in a later release.
 
 ---
 
 <div align="center">
 
-**PREZEKC AI Framework** · v0.1.0 Release Candidate
+**PREZEKC AI · v0.2.0 Development Candidate**
+
+*Skill-driven execution. Import-first requirements. Human-guided decisions. Verifiable outcomes.*
 
 </div>

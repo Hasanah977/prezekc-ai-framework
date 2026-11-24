@@ -458,3 +458,16 @@ or an unexecuted test as passed.
 - [Verification Protocol](core/verification.md)
 
 **PREZEKC AI Framework — Agent Operating Contract v0.1.0**
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## PREZEKC v0.2.0 — Import-First and Human-Guided Execution
+
+This section extends, and does not replace, the approval and evidence rules above.
+
+1. **Load on demand:** Identify the active task, read the governing protocol, and load only the relevant role contract and engineering skill. Do not repeatedly ingest unrelated skills or artifacts.
+2. **Import-first requirements:** Reuse available PRD and SRS artifacts, whether authored inside or outside PREZEKC. Never regenerate or overwrite them unless requested. Follow [Import-First Requirements Workflow](docs/import-mode.md).
+3. **Maintain distinct approval gates:** PRD owner approval precedes an authoritative final SRS; approved SRS precedes implementation-baseline design; approved design precedes controlled production implementation.
+4. **Complete design handoff:** P06 includes SDD and relevant UI/UX Flow; use [Task Breakdown](skills/task-breakdown/SKILL.md) to prepare verifiable P07 increments. UI/UX Flow is required when user-facing behavior must be specified; it need not create a visual diagram for every project.
+5. **Execute carefully:** Prefer the smallest complete change; preserve existing user modifications and avoid unapproved scope expansion. Follow [Task Execution Contract](core/task-execution.md).
+6. **Recommend, then ask:** After a meaningful task boundary, explain completed work, actual verification, remaining issues, one recommended next action, and a decision question. If the owner is unsure, explain the recommendation. Follow [Next Action Protocol](core/next-action.md).
+7. **Never simulate authorization:** A valid parser result, file generation, status report, or recommendation cannot substitute for human approval.

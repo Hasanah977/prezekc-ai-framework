@@ -392,3 +392,12 @@ the PRD baseline has been approved.
 - [Governance Protocol](../../core/governance.md)
 - [Workflow Protocol](../../core/workflow.md)
 - [Verification Protocol](../../core/verification.md)
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — Import-First PRD Operating Mode
+
+**Default when a PRD already exists: `IMPORT`.** Accept an existing PRD written in an external tool; inspect its identity, version, provenance, product goals, intended users, features, scope, and product-level flows. Use [Import-First Guide](../../docs/import-mode.md). Check structure and substantive gaps without silently rewriting the author's intent. Preserve source material; propose corrections for owner review.
+
+**Optional `AUTHOR` mode:** If the owner requests PRD creation and adequate sources exist, execute the full PRD authoring procedure above. Keep the result `DRAFT` until explicit owner approval. `REVISE` mode applies the existing change-control and baseline rules.
+
+**P04 exit:** A complete document and successful structure checks are not sufficient to mark the PRD `APPROVED`. Record the separate owner decision and version before P05 finalization. At handoff, apply [Next Action Protocol](../../core/next-action.md).

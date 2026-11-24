@@ -500,3 +500,12 @@ Final system design must use an approved SRS.
 - [Governance Protocol](../../core/governance.md)
 - [Workflow Protocol](../../core/workflow.md)
 - [Verification Protocol](../../core/verification.md)
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — Import-First SRS/RTM Operating Mode
+
+**Default when SRS or RTM exists: `IMPORT`.** Confirm the PRD baseline is actually approved. Review external SRS/RTM against the approved PRD, preserve identifiers and versions, and check behavior, validation, error handling, authorization, nonfunctional requirements, and bidirectional mapping. See [Import-First Guide](../../docs/import-mode.md).
+
+**Optional `AUTHOR` mode:** Derive a draft SRS/RTM from an approved PRD only when requested; do not regenerate documents that the owner supplied. A provisional specification must remain `DRAFT` without PRD approval. `REVISE` follows controlled baseline change procedures.
+
+Use the existing extractor and validator for supported Markdown/JSON structure; a green result is not semantic correctness or human approval. SRS must be separately owner-approved before it becomes the controlled P06 baseline. Apply [Next Action Protocol](../../core/next-action.md) at handoff.

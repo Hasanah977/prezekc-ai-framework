@@ -817,3 +817,12 @@ the applicable approved SRS and design.
 - [Governance Protocol](../../core/governance.md)
 - [Workflow Protocol](../../core/workflow.md)
 - [Verification Protocol](../../core/verification.md)
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — SDD and UI/UX Flow Handoff
+
+The P06 technical deliverable may be called **Software Design Document (SDD)** or **System Design Specification**. It must describe architecture, components, database/data models, API contracts, backend structure, security boundaries, integration, and the rationale/traceability required by the approved SRS.
+
+When user-facing behavior is in scope, coordinate with [UI/UX Flow Skill](../ui-ux-flow/SKILL.md) and its [template](../../templates/ui-ux-flow.md). Define screen navigation, user journeys, validation and error states, access restrictions, and relevant accessibility/device constraints. Do not force diagrams when prose/tables suffice.
+
+After design review and owner approval, hand off to [Task Breakdown Skill](../task-breakdown/SKILL.md) before beginning controlled P07 implementation. Recommend the next step using [Next Action Protocol](../../core/next-action.md). Neither a completed SDD nor visual prototype is self-approved.

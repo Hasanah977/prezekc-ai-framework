@@ -645,3 +645,14 @@ automated workflow execution is not yet implemented.
 - [Verification Protocol](verification.md)
 
 **PREZEKC AI Engineering Workflow Protocol — v0.1.0**
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — Import-First Design-to-Execution Workflow
+
+**P01–P09 remain the official phase identifiers.** Project intake is a pre-phase activity, not a newly numbered phase. P04 PRD and P05 SRS/RTM may be completed by importing documents prepared externally, provided format compatibility, review, version control, and separate human approval gates are satisfied. Internal document authoring is optional; baseline review is not.
+
+For applicable software projects, P06 outputs include the SDD (architecture, data, API, backend and integration contracts) **and** UI/UX Flow for user-facing behavior. These may iterate together, but they must conform to the approved SRS. After design approval and before P07, use [Task Breakdown](../skills/task-breakdown/SKILL.md) to define ordered work, acceptance criteria, dependencies, and verification evidence.
+
+At meaningful phase/task boundaries, use [Human-Guided Next Action](next-action.md): report work, checks, unresolved items, a single recommended next action, and the required owner decision. Do not ask after every trivial step within an already authorized task.
+
+For import mechanics, follow [Import-First Guide](../docs/import-mode.md).

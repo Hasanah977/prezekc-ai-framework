@@ -954,3 +954,12 @@ The presence of framework documentation alone does not establish operational con
 ---
 
 **PREZEKC AI Framework — Architecture Specification v0.1.0**
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 Operating Extension — Lightweight Agentic Engineering
+
+PREZEKC preserves P01–P09, six logical engineering roles, and its controlled PRD → SRS → design dependency chain. v0.2.0 adds **import-first requirements**, an explicit **SDD + UI/UX Flow → Task Breakdown** handoff, **progressive skill loading**, and **human-guided next actions**.
+
+PRD and SRS remain required controlled artifacts when applicable; they may be created using external editors or AI systems and then imported in the supported format. The validated content still requires semantic review and separate approvals. Optional authoring within PREZEKC remains supported.
+
+See [Import-First](docs/import-mode.md), [Next Action](core/next-action.md), [UI/UX Flow](skills/ui-ux-flow/SKILL.md), and [Task Breakdown](skills/task-breakdown/SKILL.md).

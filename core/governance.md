@@ -375,3 +375,10 @@ Detailed verification criteria are defined in
 - [Verification Protocol](verification.md)
 
 **PREZEKC AI Governance Protocol — v0.1.0**
+
+<!-- PREZEKC-V020-EXTENSION: DO NOT DUPLICATE -->
+## v0.2.0 — External Artifact and Task Authorization
+
+External authorship does not weaken the requirement baseline. Every imported PRD, SRS, and RTM retains source identity, version, provenance, and review status. A successful extraction or validator run is not an approval record. A draft PRD is not authoritative for a final SRS; a draft SRS is not an approved implementation baseline. Owner authorization is required at the existing phase gates.
+
+An AI recommendation at the end of a task is **not authorization** to begin a different task. Use the [Next Action Protocol](next-action.md) and [Import-First Guide](../docs/import-mode.md). Existing safety and change-control rules take precedence.
