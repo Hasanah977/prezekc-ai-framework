@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo-pcs-3d.png" alt="PREZEKC AI Framework" width="285">
+  <img src="assets/logo-pcs-3d.png" alt="PREZEKC AI Framework" width="240">
 </p>
 
 <h1 align="center">PREZEKC AI Framework</h1>
