@@ -1,21 +1,38 @@
-
 <div align="center">
 
-# PREZEKC AI
+# PREZEKC AI Framework
 
-### Requirements-Driven AI Engineering Framework
+[![Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
+[![Release](https://img.shields.io/badge/release-v0.1.0_RC-orange.svg)](CHANGELOG.md)
+[![Python](https://img.shields.io/badge/python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+![Platforms](https://img.shields.io/badge/platform-web%20%7C%20android%20%7C%20ios-3DDC84)
+![Stars](https://img.shields.io/github/stars/Hasanah977/prezekc-ai-framework?logo=github)
+![Last Commit](https://img.shields.io/github/last-commit/Hasanah977/prezekc-ai-framework)
 
 A structured engineering framework for building software with AI assistance, from system analysis and requirements definition to architecture, implementation, verification, and delivery.
 
-**v0.1.0 Release Candidate**
+**Requirements-driven engineering. Controlled execution. Verifiable outcomes.**
 
-[![Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml/badge.svg)](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
-[![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![Release](https://img.shields.io/badge/Release-v0.1.0_RC-orange.svg)](CHANGELOG.md)
+[📖 **Read the documentation →**](#documentation)
 
-[Getting Started](#installation) · [How It Works](#how-it-works) · [Documentation](#documentation) · [Report an Issue](https://github.com/Hasanah977/prezekc-ai-framework/issues)
+[Getting Started](#installation) · [How It Works](#how-it-works) · [Usage](#usage) · [Report an Issue](https://github.com/Hasanah977/prezekc-ai-framework/issues)
 
 </div>
+
+---
+
+## Contents
+
+- [Why PREZEKC?](#why-prezekc)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Verification](#verification)
+- [Design Boundaries](#design-boundaries)
+- [Documentation](#documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
 ---
 
@@ -77,9 +94,11 @@ These are logical engineering roles. They do not imply six autonomous AI process
 
 PREZEKC includes ten task-specific procedures:
 
-- System Analysis and Comparative Study
+- System Analysis
+- Comparative Study
 - Requirement Analysis
-- PRD Generation and PRD-to-SRS Engineering
+- PRD Generation
+- PRD-to-SRS Engineering
 - System Design
 - Web Development
 - Mobile Development
@@ -153,9 +172,7 @@ The AI assistant follows the applicable role and skill instructions. The project
 
 For requirements engineering, PREZEKC maintains a traceable relationship between product intent and system behavior.
 
-**Example:**
-
-A product requirement establishes that authorized reporting personnel must be able to access consolidated records for a selected period.
+**Example:** a product requirement establishes that authorized reporting personnel must be able to access consolidated records for a selected period.
 
 ```text
 PRD-FR-001  Consolidated record access
@@ -236,15 +253,15 @@ Open the project in your development environment and provide the AI assistant wi
 
 The recommended reading order is:
 
-1. `AGENTS.md` — agent operating contract.
-2. `core/governance.md` — authority and change control.
-3. `core/workflow.md` — lifecycle requirements.
+1. `AGENTS.md`: agent operating contract.
+2. `core/governance.md`: authority and change control.
+3. `core/workflow.md`: lifecycle requirements.
 4. The relevant file in `agents/`.
 5. The required `skills/<skill-name>/SKILL.md`.
 
 The framework can also be copied into a project as a self-contained reference directory. Preserve relative file paths so links between its specifications remain valid.
 
-**Note:** PREZEKC does not automatically register its skills in every AI assistant. How instructions are attached or loaded depends on the assistant or development environment being used.
+> **Note:** PREZEKC does not automatically register its skills in every AI assistant. How instructions are attached or loaded depends on the assistant or development environment being used.
 
 ## Usage
 
@@ -377,7 +394,7 @@ The v0.1.0 release candidate was assessed locally with the following reported re
 
 GitHub Actions executes the configured validation workflow on repository changes.
 
-[View Framework Validation](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
+[View Framework Validation →](https://github.com/Hasanah977/prezekc-ai-framework/actions/workflows/framework-validation.yml)
 
 Verification results apply to the tested artifacts and environments. They do not establish universal correctness, production readiness, or approval of unreviewed requirements.
 
@@ -420,23 +437,18 @@ Contributions should preserve existing engineering contracts, maintain requireme
 
 Changes that alter governance, approval authority, or controlled engineering behavior require explicit review.
 
-
 ## License
 
 Copyright (c) 2026 PREZEKC AI Framework contributors.
 
 This project is currently distributed without an open-source license.
 
-All rights are reserved by the respective copyright holders.
-Licensing terms will be established following the completion of
-the project's release and intellectual property review.
+All rights are reserved by the respective copyright holders. Licensing terms will be established following the completion of the project's release and intellectual property review.
 
 ---
 
 <div align="center">
 
-**PREZEKC AI Framework · v0.1.0 Release Candidate**
-
-Requirements-driven engineering. Controlled execution. Verifiable outcomes.
+**PREZEKC AI Framework** · v0.1.0 Release Candidate
 
 </div>
